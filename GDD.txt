@@ -2,9 +2,94 @@ BluemanAdventure - straight laced but unwilling hero on a quest
 to find his father, the captured king of the four realms of
 fire, earth, water and air.
 
-Blueman travels through 4 levels, one for each of the planets,
-Vodin, Ohenus, Zemere and Ventis, in the Universum of the 4 brothers, the
-realm of Big 4. Each inspired by water, fire, earth and air.
+Game Overview:
+	Game Concept:
+		Blueman travels through 4 levels, one for each of the planets,
+		Vodin, Ohenus, Zemere and Ventis. In each he sees specific colors, hears specific sounds.
+		He meets friends and foes, friends give him health, foes take it away.
+		He can kill both of them, but if he kills a friend, Blueman too will suffer.
+		At the end of each level he obtains a scroll, a message from his father.
+		He puts together the messages to build the map to his father.
+		The last level is a bird's view labyrinth. There are four possible exit chambers, 
+		the map leads the player to the correct one.
+		The game ends when the player dies in the final level, or when they find the correct exit.
+
+	Genre:
+		Adventure Platformer with a story in the background.
+
+	Target Audience:
+		10 year old boys, Samuel, Alexander and Oskar. 
+
+	Game flow summary:
+		The player moves through the game using the keyboard interface.
+		Up to jump, down to protect themselves, left/ right as expected.
+		If they press left/right twice they will run.
+		Hit with d, collect an item with c, open inventory with i.
+
+		The player sees a moving background, less Donkey Kong, more Super MArio Bros style.
+		NPCs come from right/ left. Player has a health bar and protection bar as part of their hud.
+		
+	Look and feel of the game:
+		Pixelated, even exagerrated in this regard. There is no roundness in the game.
+		The colours are simple, but they should fit together well stylistically,
+		unlike in most retro looking games (with their charming but too strong colours).
+		Each world should have its own set of colours.
+		That said, the game should look very simple shapewise. 
+		
+Gameplay and Mechanics:
+	Gameplay:
+		Game progression:
+			The player moves through the game by moving from the start point to the end point.
+			This could be vertically (air and water) or horizonatally (earth and fire).
+			They progress by collecting key items at the end of each level.
+			They must also destroy their enemies (or they themselves will be killed).
+			At the end they must exit the game using the correct protal,
+			which they will only be able to tell apart using the key items they collected.
+			Blueman should also be presented with memories which will give him clues on how best to 
+			pass the level (to represent life lessons as well as add story).
+			
+		Mission Challenge Structure:
+			At the beginning of each level they must be told WHY they are trying to reach the end.
+			This could be done textually or through extremely simplistic cut scenes.
+			Ex. Zemer: Zemer Capital Spina: bar to court. In the bar news reach him that his father has disappeared.
+			He decides to drop his facade as Earth King's guard and talk to the Earth king.
+			The way there is the game's tutorial. When he reaches the court however, he is targeted by the earth king
+			and must make his escape of the city.
+			
+		Puzzle structure:
+			There is no puzzles. The correct items must be in the players inventory for 100% success,
+			but chance can always allow the player to win. Maybe a memory/ to life lesson system
+			could be introduced. 
+			Ex: player is showed Blueman's memory of his father's kings guard teaching him to use 
+			the daggers. This could be done in the middle of a level which is likely/easiest to be completed
+			using the daggers. It could also show the respect Blueman felt for the king's guard and the 
+			lack of love he has for his father.
+
+		Objectives:
+			Heave Blueman learn from his past life. He cannot escape responsibility.
+			Use these life lessons to pass the platformer levels, to collect the correct
+			items. Build the map, escape the game, enter the real world, hopefully find your father.
+			
+		Game flow:
+			The game should pass by relatively quickly, taking 1 hour - 3 hours to complete.
+			The rate of enemy attack should be high. The music should be quick/ smooth/ progressive.
+			Sometimes the rate of change between collection/ hits should be high.
+			Items can be destroyed too with hits, even the crucial ones.
+			
+	Mechanics:
+		Physics: How does the physical universe work?
+			Depends on the world. 
+			Air/ Water: the levels move vertically.
+				Water: cold and high pressure.
+				Air: cold and low pressure.
+			Earth/ Fire: the levels move horizontally.
+				Earth: 
+			Characters alien to the current world need suits to survive in the world.
+			
+		
+
+The Universum of the 4 brothers, the realm of Big 4
+ Each inspired by water, fire, earth and air.
 He starts his story in water ( but only passingly), as this is
 the home he has decided to leave. Now living a life
 of pleasure and hedonism in the capital of the realm,

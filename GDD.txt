@@ -79,11 +79,54 @@ Gameplay and Mechanics:
 	Mechanics:
 		Physics: How does the physical universe work?
 			Depends on the world. 
-			Air/ Water: the levels move vertically.
-				Water: cold and high pressure.
-				Air: cold and low pressure.
-			Earth/ Fire: the levels move horizontally.
-				Earth: 
+			Ventis: 
+				very cloudy planet, the closer you get to the core the darker it gets,
+				the pressure slowly increases. Smallestof the planets with smallest gravity.
+				Eventually the atmosphere is so thick it is almost liquid like.
+				At a certain point, the temperature starts increasing. We are nearing the core.
+				There are oceans of glowing liquid metallic hydrogen. It is so dense it isn't gaseaous anymore.
+				It rolls and convects, just like magma. Generates strong magnetic field.
+				The air is glowing, red, yellow until white.
+				There are two main environments here:
+					- toppers
+						overcast, quick to move, cloudy, stormy. Everything flies. The gravity is small here.
+						Intelligent life here comes from other aliens that immigrated ages ago.
+						These are tall and lighte with technology eveloved towards flight.
+						Floating cities which obtain energy from glowing hot helloy.
+						A character falls here, but slowly. Its bright above and darker below.
+						Plants are present but not natural to the environment.
+					- lacing 
+						very dark here, difficult to get through, nothing lives here.
+						cold and desolate and is the area where pressure changes from
+						low to high.
+						This is the source lots of tubing which carries Helloy to the toppers.
+						Toppers release underlings here, these are trained to eat other underlings
+						that try to enter the helloy tubing. Any underling would die in the topps.
+					- underlings - 
+						ocean of red-white liquid hydrogen (Helloy). Pressure is extremely high, higher than
+						all other planets. Everything is squat and long. It is brighter below and darker above.
+						The hydrogen is convecting and the magnetism is strong.
+						Creatures are unintelligent, or at least apparently so.
+						They are snakelike/ spiderlike life forms which can be trained like animals.
+			Vodin:
+				A planet of storming sea. Nothing is above sea level.
+				Cities have spawned at the floor of this ocean. Player can go up by jumping.
+				There is many sky scrapers. Some underling bodies may be found here.
+				Helloy is used to power the cities. It is imported from Ventis but also mined from below
+				sea floor, from the core.
+			Ohenus:
+				Largest planet.
+				It is a sun. Convecting pockets of hot gas under the surface cause Granulation.
+				Sometimes, these bubbles pop causing solar flares and even prominences.
+				Are there any bad guys? Maybe the environment is the bad guy?
+				Are there any underlings? What's under the surface? Is it only the convection causing the bubbles?
+				Or is there a sleeping dragon?
+			Zemere:
+				Very much like our world. 3rd largest planet. Unmutated tops live here.
+				There are plants, many races. Helloy is needed but difficult to comeby since it is far bith high and low.
+				Gravity acts down. Water may be found and in it, colonies of Vodins.
+				Toppers di Ventis may visit, but in suits or regulated environments, the pressure is too high.
+				
 			Characters alien to the current world need suits to survive in the world.
 			
 		

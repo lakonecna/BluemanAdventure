@@ -5,7 +5,7 @@ fire, earth, water and air.
 Game Overview:
 	Game Concept:
 		Blueman travels through 4 levels, one for each of the planets,
-		Vodin, Ohenus, Zemere and Ventis. In each he sees specific colors, hears specific sounds.
+		Vodin, Ogen'us, Semere and Aentis. In each he sees specific colors, hears specific sounds.
 		He meets friends and foes, friends give him health, foes take it away.
 		He can kill both of them, but if he kills a friend, Blueman too will suffer.
 		At the end of each level he obtains a scroll, a message from his father.
@@ -79,57 +79,117 @@ Gameplay and Mechanics:
 	Mechanics:
 		Physics: How does the physical universe work?
 			Depends on the world. 
-			Ventis: 
-				very cloudy planet, the closer you get to the core the darker it gets,
-				the pressure slowly increases. Smallestof the planets with smallest gravity.
+			Magic exists but it is denied.
+			Aentis: 
+				very cloudy planet, the closer you get to the core, the darker it gets,
+				the pressure slowly increases. Smallest of the planets with smallest gravity.
 				Eventually the atmosphere is so thick it is almost liquid like.
 				At a certain point, the temperature starts increasing. We are nearing the core.
 				There are oceans of glowing liquid metallic hydrogen. It is so dense it isn't gaseaous anymore.
 				It rolls and convects, just like magma. Generates strong magnetic field.
-				The air is glowing, red, yellow until white.
+				Everything is glowing, red, yellow until white.
 				There are two main environments here:
-					- toppers
+					- Frissure
 						overcast, quick to move, cloudy, stormy. Everything flies. The gravity is small here.
 						Intelligent life here comes from other aliens that immigrated ages ago.
 						These are tall and lighte with technology eveloved towards flight.
 						Floating cities which obtain energy from glowing hot helloy.
+						When used up, this metal is released back into the atmosphere as cloud.
 						A character falls here, but slowly. Its bright above and darker below.
-						Plants are present but not natural to the environment.
-					- lacing 
+						Plants are present but not natural to the environment and also evolved
+						towards being long and tall.
+					- The Lace/Webbing 
 						very dark here, difficult to get through, nothing lives here.
 						cold and desolate and is the area where pressure changes from
-						low to high.
+						low to high, from gas to liquid.
 						This is the source lots of tubing which carries Helloy to the toppers.
-						Toppers release underlings here, these are trained to eat other underlings
-						that try to enter the helloy tubing. Any underling would die in the topps.
-					- underlings - 
+						Toppers release underlings here.
+					- Riche's Bay/ Vertex  
 						ocean of red-white liquid hydrogen (Helloy). Pressure is extremely high, higher than
 						all other planets. Everything is squat and long. It is brighter below and darker above.
 						The hydrogen is convecting and the magnetism is strong.
-						Creatures are unintelligent, or at least apparently so.
-						They are snakelike/ spiderlike life forms which can be trained like animals.
+						Creatures, or Hyado-mori, are not organic. They are snakelike robots covered in a metallic exosuit 
+						designed to mine helloy by swallowing it, carrying it to the tubing, vomitting it out inside.
 			Vodin:
-				A planet of storming sea. Nothing is above sea level.
-				Cities have spawned at the floor of this ocean. Player can go up by jumping.
-				There is many sky scrapers. Some underling bodies may be found here.
-				Helloy is used to power the cities. It is imported from Ventis but also mined from below
-				sea floor, from the core.
-			Ohenus:
+				A planet of storming sea. Nothing is above sea level but boats.
+				Some areas are too stormy to voyage.
+				Player can swim up by jumping and swim down by crouching.
+				The oldest inhabitants of the universe live here.
+				Divided into:
+					- Miaso:
+						The intelligent, original inhabitants of the sea floor (think intelligent mermen), 
+						built up into lighter areas. They are more resistant to the radiation from above,
+						their skin is darker, their eyes are smaller with extra membranes.
+						Their bones are thinner and they are much larger than the Meyehmevax.
+						They have cities just like us. No sky scrapers, no walls, no floors,
+						instead a basket like waeve is suspended on the helloy tubing from below.
+						Everything but the tubing is built to be elastic and move with the flow of water.
+						There is technology everywhere, it is all powered by helloy which was once
+						mined in yahdiri but now comes from Riche's bay.
+					- Yahdiri:
+						It is an underwater rain forest. Many wild beast live here.
+						There used to be cities, but these have been abandoned. There is much tubing around
+						which used to carry helloy from the core of the planet before the discovery of Riche's Bay.
+						There is tell of a cannibalistic tribe of Meyehmevax, predecessors to Miasovans.
+						Really they are an abused people, their labour was used to mine what was left
+						of Vodin's helloy before they were abandon by the rulers of Masovians.
+						They are simple aboriginal people who live without electricity.
+						They use a bioluminescent sea moss known as Occoboji as a sorce of light.
+						They are farmers and hunters, smaller than Miasovians, larger eyes.
+						Very pale because they are unused to sunlight. Their bones are stronger to handle the pressure.
+						They are covered with exoskeleton scales, they have mermaid tails but above are antropomorphic.
+						Beasts are like dinosaurs, bus-sized crabs and spiders. 
+						Some Hyadomori wreckages may be found here.
+						Plants are weedlike/ snakelike.
+			Ogen'us:
 				Largest planet.
 				It is a sun. Convecting pockets of hot gas under the surface cause Granulation.
 				Sometimes, these bubbles pop causing solar flares and even prominences.
 				Are there any bad guys? Maybe the environment is the bad guy?
-				Are there any underlings? What's under the surface? Is it only the convection causing the bubbles?
-				Or is there a sleeping dragon?
-			Zemere:
-				Very much like our world. 3rd largest planet. Unmutated tops live here.
-				There are plants, many races. Helloy is needed but difficult to comeby since it is far bith high and low.
+				Are there any Hyadomori? What's under the surface? Is it only the convection causing the bubbles?
+				Or is there a sleeping dragon? Can this dragon be explained by science.
+				There is a region above the range of prominences as well as the pull of gravity,
+				where orbiting solar panels are circulating and collecting the energy. This is collected in batteries
+				and sent in ships to other planets. There are many floating vessels about.
+				Experiments and most energy science is going on here, close to an energy source.
+			Semere:
+				Very much like our world. 3rd largest planet. 
+				Frissure was first colonized by Semerians.
+				Semerians are bio-technologically advanced Miasovians. They are still biologically Miasovians,
+				but they use bioscience to build technology which allows them to walk bipedally like weird 
+				two legged forest dwellers of this planet.
+				There are plants, many biotech races. Helloy is useful but difficult to comeby since it is far both high and low.
+				Ogen'us is the prime source of energy.
 				Gravity acts down. Water may be found and in it, colonies of Vodins.
-				Toppers di Ventis may visit, but in suits or regulated environments, the pressure is too high.
+				Frissure-folk di Aentis may visit, but in suits or regulated environments, the pressure is too high.
+				Miasovians too but also in suits.
 				
 			Characters alien to the current world need suits to survive in the world.
+		Movement in the game:
+			Aentis: flying, left, right, up, down (fire/ jet powered suit)
+			Vodin: swimming, left right up and down (biological movement)
+			Ogen'us: walking left right, crouching down, jumping up (electric but bipedal suit)
+			Semere: walking left right, crouching down, jumping up (electric but bipedal suit)
+		Objects in game:
+			pick object with c, in inventory enter is pressed to hold object or space to change to next one.
+			drop held object with x
+			use a held object on another with range with d (example sword would kill, shovel would dig).
+		Actions:
+			Input:
+				keyboard is used to interact with the game.
+				i - opens/ closes inventory interface (which covers the screen)
+				x - to drop held object
+				space - to change currently held object from the inventory (to next in queue)
+				enter - to choose object to hold when in inventory
+				d - to use held object on the object in the direction in player's focus
+				c - to collect/ put something in inventory
+				up/ down/ left/ right (click) - jump up and look up, crouch down and look down, move once and look in the direction
+				up/ down/ left/ right (press and hold) - keep looking in the direction, keep looking in the direction as well as move there
+			Output: 
+				the screen shows players position, the objects/ npcs around them.
+				the hud in lower left corner shows current health and armouring rating of the player
+		Combat: 
 			
-		
 
 The Universum of the 4 brothers, the realm of Big 4
  Each inspired by water, fire, earth and air.

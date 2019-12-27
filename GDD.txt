@@ -171,12 +171,26 @@ Gameplay and Mechanics:
 			Ogen'us: walking left right, crouching down, jumping up (electric but bipedal suit)
 			Semere: walking left right, crouching down, jumping up (electric but bipedal suit)
 		Objects in game:
+			there are five types of objects: healing, harming, armouring, unarmouring and special.
+			These can change the state of:
+				unary: 
+					healing must be collected or pressed enter on in inventory
+					self harming is not okay
+					armouring must be pressed enter on in inventory to be worn
+					unarmouring must be currently worn and pressed enter on in inventory
+					special depends on object
+				binary:
+					healing will heal/ build the character/ object in focus of the user
+					harming will harm character/object in focus of the user (armour then health)
+					armouring will armour character in focus of the user
+					unarmouring will unarmour the character in focus of the user
 			pick object with c, in inventory enter is pressed to hold object or space to change to next one.
 			drop held object with x
 			use a held object on another with range with d (example sword would kill, shovel would dig).
 		Actions:
 			Input:
 				keyboard is used to interact with the game.
+				? - gives/ removes info on object held in inventory
 				i - opens/ closes inventory interface (which covers the screen)
 				x - to drop held object
 				space - to change currently held object from the inventory (to next in queue)
@@ -189,7 +203,7 @@ Gameplay and Mechanics:
 				the screen shows players position, the objects/ npcs around them.
 				the hud in lower left corner shows current health and armouring rating of the player
 		Combat: 
-			
+			player takes away npc health by using a harming object 
 
 The Universum of the 4 brothers, the realm of Big 4
  Each inspired by water, fire, earth and air.

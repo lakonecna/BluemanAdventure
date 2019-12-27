@@ -198,13 +198,46 @@ Gameplay and Mechanics:
 				d - to use held object on the object in the direction in player's focus
 				c - to collect/ put something in inventory
 				up/ down/ left/ right (click) - jump up and look up, crouch down and look down, move once and look in the direction
-				up/ down/ left/ right (press and hold) - keep looking in the direction, keep looking in the direction as well as move there
+				up/ down/ left/ right (press and hold) - the same as click for u/d, 
+													keep looking in the direction as well as move there for l/r
 			Output: 
 				the screen shows players position, the objects/ npcs around them.
 				the hud in lower left corner shows current health and armouring rating of the player
-		Combat: 
-			player takes away npc health by using a harming object 
-
+		Combat: //TODO****************************************************************************************************
+			all objects/ characters have a rate of health change and a rate of armour change 
+			as well as a health rating and armouring rating, these are on a scale of -100 to 100, where
+			-100 means death or 0 armouring and 100 means full health and full armouring
+			Health isn't lost by external damage unless armouring is at -100.
+			Rate of health loss is calculated based on current armouring.
+			Rate of armour loss is constant.
+			player takes away npc armour by focusing on them and using unarmouring/harming objects on them.
+			The smaller the armouring rating, the quicker the rate of health loss
+		//****************************************************************************************************************
+		Economy:
+			Players: They can collect batteries, helloy tubing and occoboji.
+			These can then be used to buy XEB57 updates like pressure or flight for armouring 
+			or aether droids for health repair.
+			
+			World: Helloy, batteries and occoboji are the main currencies of the world.
+		Screen Flow: 
+				Set of screens: Main Menu, Saved Games, Goodbye, Game, About, Escaping sequence, GameWasSaved, Failure
+			(Main Menu-Saved Games->Saved Games)
+				(Saved Games-"Name of save 1"->Game) 
+				(Saved Games-"Name of save 2"->Game) 
+				(Saved Games-"Name of save 3"->Game) 
+					(Game-Esc->Escaping Sequence)
+						(Escaping Sequence-Yes->GameWasSaved)
+						(Escaping Sequence-No->GameWasSaved)
+							(GameWasSaved-Yes->Main Menu)
+							(GameWasSaved-No->Game)
+					(Game-Death->Failure)
+						(
+			(Main Menu-Info->About)
+				(About-Okay, thank you!->Main Menu)
+			(Main Menu-Quit->Goodbye)
+			Any link mus be selected as the current option using the arrow keys.
+			The user should be able to see what the current option is.
+		
 The Universum of the 4 brothers, the realm of Big 4
  Each inspired by water, fire, earth and air.
 He starts his story in water ( but only passingly), as this is

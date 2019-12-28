@@ -256,8 +256,34 @@ Gameplay and Mechanics:
 			If the player wants to restart/ replay a game, they can do so from the GameMenu of their save.
 		Cheats and Easter Eggs:
 			There is no cheats and no easter eggs, except for those referring to the game's world and its history.
-			Ex. Wreckages of hyadomori in the Yahdiri,
+			Ex of easter eggs: Wreckages of hyadomori in the Yahdiri
+	Story, setting, and character:
+		Story and narrative:
+			Back story: 
+				Blueman is the prince of Vodin. 
+				He is the son of a good king but absentee father.
+				He grew up in the palace, admiring his father and 
+				wanting to make him proud of his son.
+			Plot of the game:
+				
+			Game progression:
+				
+			Cut scenes: (actors, setting, script)
+				
 		
+		Game World:
+			Look and feel:
+			
+			Areas: (physical characteristics, how it relates
+				to the world, which levels they appear in,
+				how they connect to their adjacent levels)
+				
+		Characters:
+			(backstory, personality, appearance, animations,
+			abilities, relevance to story, relationships)
+	
+	Levels
+			
 The Universum of the 4 brothers, the realm of Big 4
  Each inspired by water, fire, earth and air.
 He starts his story in water ( but only passingly), as this is

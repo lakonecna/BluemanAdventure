@@ -220,23 +220,43 @@ Gameplay and Mechanics:
 			
 			World: Helloy, batteries and occoboji are the main currencies of the world.
 		Screen Flow: 
-				Set of screens: Main Menu, Saved Games, Goodbye, Game, About, Escaping sequence, GameWasSaved, Failure
+				Set of screens: Main Menu, Saved Games, Goodbye, GameMenu, 
+								About, Escaping sequence, GameWasSaved, Failure Sequence, NewGame
 			(Main Menu-Saved Games->Saved Games)
-				(Saved Games-"Name of save 1"->Game) 
-				(Saved Games-"Name of save 2"->Game) 
-				(Saved Games-"Name of save 3"->Game) 
-					(Game-Esc->Escaping Sequence)
-						(Escaping Sequence-Yes->GameWasSaved)
-						(Escaping Sequence-No->GameWasSaved)
-							(GameWasSaved-Yes->Main Menu)
-							(GameWasSaved-No->Game)
-					(Game-Death->Failure)
-						(
+				(Saved Games-"Name of save 1"->GameMenu) 
+				(Saved Games-"Name of save 2"->GameMenu) 
+				(Saved Games-"Name of save 3"->GameMenu)
+					(GameMenu-Play->Game)
+						(Game-Esc->Escaping Sequence)
+							(Escaping Sequence-Yes->GameWasSaved)
+							(Escaping Sequence-No->GameWasSaved)
+								(GameWasSaved-Yes->Main Menu)
+								(GameWasSaved-No->Game)
+						(Game-Death->Failure)
+							(Failure-Yes->NewGame)
+							(Failure-No->Main Menu)
+					(GameMenu-Erase->Saved Games(with empty slot))
+					(GameMenu-Reset->Saved Games(with restarted game))
+				(Saved Games-"Empty"->NewSave)
+					(NewSave-Play->NewGame)
 			(Main Menu-Info->About)
 				(About-Okay, thank you!->Main Menu)
 			(Main Menu-Quit->Goodbye)
-			Any link mus be selected as the current option using the arrow keys.
+			Any link must be selected as the current option using the arrow keys.
 			The user should be able to see what the current option is.
+		Game Options:
+			There is not much optionality.
+			The player can only win or loose. They can choose
+			not to collect objects but that will only make their winning odds smaller.
+		Replaying and saving:
+			A save is defined as player name, current level, hud state and inventory state. 
+			The save when clicked will put the player at the very beginning of the level after
+			the one they have passed. If there is a cut scene after their finished level, they will watch it again.
+			At the end of the game, their save implies they completed the game.
+			If the player wants to restart/ replay a game, they can do so from the GameMenu of their save.
+		Cheats and Easter Eggs:
+			There is no cheats and no easter eggs, except for those referring to the game's world and its history.
+			Ex. Wreckages of hyadomori in the Yahdiri,
 		
 The Universum of the 4 brothers, the realm of Big 4
  Each inspired by water, fire, earth and air.

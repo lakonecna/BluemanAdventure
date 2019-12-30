@@ -1,8 +1,8 @@
 package main;
 
 import javax.swing.*;
-import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 public class GamePanel extends JPanel {
 
@@ -18,8 +18,22 @@ public class GamePanel extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
+        g.setColor(new Color(250,50,50));
+        g.setFont(new Font(Font.SERIF, Font.BOLD + Font.ITALIC, 15));
         super.paintComponent(g);
-        g.drawString("Hello!", 300, 220);
+        String str = "Hello";
+        int panelCenterX = WIDTH/2;
+        int panelCenterY = HEIGHT/2;
+        FontMetrics metrics = g.getFontMetrics();
+        Rectangle2D strRect = metrics.getStringBounds(str, g);
+        int strStartX = panelCenterX - (int) strRect.getWidth() / 2;
+        int strStartY = panelCenterY + (int) strRect.getHeight()/ 2;
+        g.drawString(str, strStartX, strStartY);
+        g.setColor(new Color(100,150,50));
+        g.drawLine(0, HEIGHT/2,WIDTH,HEIGHT/2);
+        g.drawLine(100,100,100,100);
+        g.setColor(new Color(100,150,200));
+        g.drawLine(WIDTH/2, 0, WIDTH/2, HEIGHT);
     }
 
 }

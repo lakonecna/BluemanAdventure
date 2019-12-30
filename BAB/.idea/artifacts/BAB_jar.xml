@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="BAB:jar">
+    <output-path>$PROJECT_DIR$/output/artifacts/BAB_jar</output-path>
+    <root id="archive" name="BAB.jar">
+      <element id="module-output" name="SimpleGraphicsProject" />
+      <element id="module-output" name="main" />
+    </root>
+  </artifact>
+</component>

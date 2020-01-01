@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/ReadImage/ReadImage.iml" filepath="$PROJECT_DIR$/ReadImage/ReadImage.iml" />
       <module fileurl="file://$PROJECT_DIR$/SimpleGraphicsProject/SimpleGraphicsProject.iml" filepath="$PROJECT_DIR$/SimpleGraphicsProject/SimpleGraphicsProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/StarField/StarField.iml" filepath="$PROJECT_DIR$/StarField/StarField.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestAntWithIntelliJ/TestAntWithIntelliJ.iml" filepath="$PROJECT_DIR$/TestAntWithIntelliJ/TestAntWithIntelliJ.iml" />
       <module fileurl="file://$PROJECT_DIR$/SimpleGraphicsProject/main.iml" filepath="$PROJECT_DIR$/SimpleGraphicsProject/main.iml" />
     </modules>
   </component>

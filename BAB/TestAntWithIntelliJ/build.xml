@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<project default="main">
+    <target name="main" depends="compile, jar">
+        <echo>
+            Building the .jar file.
+        </echo>
+    </target>
+    <target name="compile">
+        <javac srcdir="./src" destdir="./bin" includeantruntime="false" />
+    </target>
+    <target name="jar" depends="compile">
+        <jar jarfile="Project.jar" basedir="./bin" includes="*.class">
+            <manifest>
+                <attribute name="Main-Class" value="Project.class" />
+            </manifest>
+        </jar>
+    </target>
+</project>

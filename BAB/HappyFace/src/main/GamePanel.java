@@ -42,15 +42,26 @@ public class GamePanel extends JPanel {
         g.fillOval(eye1RectPointX, eye1RectPointY, eyeRadius, eyeRadius);
         g.fillOval(eye2RectPointX, eye2RectPointY, eyeRadius, eyeRadius);
         // mouth arc
+
         int mouthCenterX = faceRectWidth / 2;
         int mouthCenterY = 2 * (faceRectHeight / 3);
         int mouthWidth = eyeRadius * 3;
         int mouthHeight = eyeRadius * 2;
         int mouthRectPointX = mouthCenterX - (mouthWidth / 2);
         int mouthRectPointY = mouthCenterY - (mouthHeight / 2);
+        /*
         int mouthFromAngle = 210;
         int mouthToAngle = 120;
         g.setColor(Color.black);
         g.drawArc(mouthRectPointX, mouthRectPointY, mouthWidth, mouthHeight, mouthFromAngle, mouthToAngle);
+         */
+        // polygon mouth
+        Polygon mouth = new Polygon();
+        int mouthRectPoint2X = mouthCenterX + (mouthWidth / 2);
+        mouth.addPoint(mouthRectPointX, mouthRectPointY);
+        mouth.addPoint(mouthCenterX, mouthCenterY);
+        mouth.addPoint(mouthRectPoint2X, mouthRectPointY);
+        g.setColor(Color.black);
+        g.fillPolygon(mouth);
     }
 }

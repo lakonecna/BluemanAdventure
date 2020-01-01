@@ -21,7 +21,9 @@ public class GamePanel extends JPanel {
 
     public void init() {
         try {
-            image = ImageIO.read(getClass().getResourceAsStream("/ReadImage/resources"));
+            // issue solution: resource files must be in the module's output folder,
+            // the references and the .class files must be in one folder
+            image = ImageIO.read(getClass().getResourceAsStream("/sunset.jpg"));
         }
         catch(IOException e) {
             e.printStackTrace();

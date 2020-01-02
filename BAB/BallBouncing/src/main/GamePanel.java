@@ -13,7 +13,7 @@ public class GamePanel extends JPanel implements Runnable{
     private Ball ball;
     private Thread thread;
     private boolean running;
-    private int fps = 60;
+    private int fps = 45;
     private long msPerFrame = 1000/fps;
     // method chain:
     //  GamePanel()

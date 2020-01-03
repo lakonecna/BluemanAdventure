@@ -4,6 +4,7 @@ import main.GamePanel;
 import math.Vector2D;
 
 import static org.junit.Assert.*;
+//import org.junit.Test;
 
 // test folder was marked as test sources root, right click, mark directory as, test sources root
 // content dirs were automatically converted to packages

@@ -13,7 +13,7 @@ public class GamePanel extends JPanel implements Runnable{
     private Ball ball;
     private Thread thread;
     private boolean running;
-    private int fps = 45;
+    private int fps = 60;
     private long msPerFrame = 1000/fps;
     // method chain:
     //  GamePanel()
@@ -52,8 +52,8 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     protected void paintComponent(Graphics g) {
-        // assumption: will be called with every repaint() at the end of run()
         super.paintComponent(g);
+        // assumption: will be called with every repaint() at the end of run()
         if(ball != null) ball.draw((Graphics2D) g);
     }
 
@@ -66,10 +66,10 @@ public class GamePanel extends JPanel implements Runnable{
             start = System.nanoTime();
             update();
             sinceStart = System.nanoTime() - start;
-            untilFramesUp = msPerFrame - sinceStart / 1000000; // TODO Remember this is multiplied by 10^-6 because nanosec -> millisec
+            untilFramesUp = msPerFrame - sinceStart / 1000000;
             if(untilFramesUp < 0)   untilFramesUp = 5;
             try {
-                thread.sleep(untilFramesUp);
+                Thread.sleep(untilFramesUp);
             }
             catch (Exception e) {
                 e.printStackTrace();

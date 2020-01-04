@@ -10,12 +10,12 @@ public class AnimatedGIF {
     private BufferedImage[] frames;
     private int frameCount = -1;
     private int currentFrame = -1;
-    private boolean isReady = false; //TODO
+    private boolean isReady = false;
     private GifDecoder decoder;
 
     public AnimatedGIF(int x,int y) { position = new Point(x,y); }
 
-    private void readGif(String gifFile) {
+    public void readGif(String gifFile) {
         decoder = new GifDecoder();
         decoder.read(getClass().getResourceAsStream(gifFile));
         frameCount = decoder.getFrameCount();
@@ -33,7 +33,7 @@ public class AnimatedGIF {
         }
     }
 
-    private void nextFrame() {
+    public void nextFrame() {
         ++currentFrame;
         if(currentFrame == frameCount) {
             currentFrame = 0;

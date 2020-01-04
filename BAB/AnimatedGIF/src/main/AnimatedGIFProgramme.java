@@ -2,7 +2,7 @@ package main;
 
 import javax.swing.*;
 
-public class AnimatedGIF {
+public class AnimatedGIFProgramme {
     public static void main(String[] args) {
         JFrame mainWindow = new JFrame("AnimatedGIF Programme");
         mainWindow.setLocationRelativeTo(null);

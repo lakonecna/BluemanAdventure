@@ -6,14 +6,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable{
-    public static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     public static final int WIDTH = 640;
     public static final int HEIGHT = 480;
     private AnimatedGIF gif;
     private Thread thread;
     private boolean running;
     private int fps = 10;
-    private int timePerFrame = 1000 / fps;
+    private long timePerFrame = 1000 / fps;
 
     public GamePanel() {
         super();
@@ -31,8 +31,8 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     private void init() {
-        gif = new AnimatedGIF(160,100);
-        gif.readGif("trees.gif");
+        gif = new AnimatedGIF(0,0);
+        gif.readGif("/images/trees.gif");
         running = true;
     }
 
@@ -40,9 +40,10 @@ public class GamePanel extends JPanel implements Runnable{
         init();
         long start;
         long sinceStart;
-        long wait;
+        long wait = 100;
         while(running) {
             start = System.nanoTime();
+
             sinceStart = System.nanoTime() - start;
             wait = timePerFrame - sinceStart / 1000000;
             if(wait < 0) wait = 5;
@@ -53,13 +54,15 @@ public class GamePanel extends JPanel implements Runnable{
                 e.printStackTrace();
             }
         }
+        System.out.println("but did i get here");
         gif.nextFrame();
+        System.out.println("and here too...");
         repaint();
     }
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //Graphics2D g2 = (Graphics2D) g;
-        gif.draw((Graphics2D) g);
+        Graphics2D g2 = (Graphics2D) g;
+        gif.draw(g2);
     }
 }

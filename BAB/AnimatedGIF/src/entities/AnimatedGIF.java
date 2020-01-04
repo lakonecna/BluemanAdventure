@@ -13,7 +13,11 @@ public class AnimatedGIF {
     private boolean isReady = false;
     private GifDecoder decoder;
 
-    public AnimatedGIF(int x,int y) { position = new Point(x,y); }
+    public AnimatedGIF(int x,int y) {
+        position = new Point();
+        position.x = x;
+        position.y = y;
+    }
 
     public void readGif(String gifFile) {
         decoder = new GifDecoder();
@@ -21,7 +25,7 @@ public class AnimatedGIF {
         frameCount = decoder.getFrameCount();
         currentFrame = 0;
         frames = new BufferedImage[frameCount];
-        for(int i = 0; 0 < frameCount; ++i) {
+        for(int i = 0; i < frameCount; ++i) {
             frames[i] = decoder.getFrame(i);
         }
         isReady = true;
@@ -29,13 +33,16 @@ public class AnimatedGIF {
 
     public void draw(Graphics2D g) {
         if(isReady) {
+            System.out.println(position.x + " " + position.y + " " + currentFrame + " " + frameCount);
             g.drawImage(frames[currentFrame],position.x,position.y,null);
         }
     }
 
     public void nextFrame() {
+        System.out.println("I got here");
+        //System.out.println(currentFrame + " becomes " + currentFrame + 1);
         ++currentFrame;
-        if(currentFrame == frameCount) {
+        if(currentFrame >= frameCount) {
             currentFrame = 0;
         }
     }

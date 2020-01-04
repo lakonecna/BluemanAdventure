@@ -6,12 +6,37 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class AnimatedGIF {
-    private Point location;
+    private Point position;
     private BufferedImage[] frames;
     private int frameCount = -1;
     private int currentFrame = -1;
-    private boolean x = false; //TODO
+    private boolean isReady = false; //TODO
     private GifDecoder decoder;
 
-    public AnimatedGIF
+    public AnimatedGIF(int x,int y) { position = new Point(x,y); }
+
+    private void readGif(String gifFile) {
+        decoder = new GifDecoder();
+        decoder.read(getClass().getResourceAsStream(gifFile));
+        frameCount = decoder.getFrameCount();
+        currentFrame = 0;
+        frames = new BufferedImage[frameCount];
+        for(int i = 0; 0 < frameCount; ++i) {
+            frames[i] = decoder.getFrame(i);
+        }
+        isReady = true;
+    }
+
+    public void draw(Graphics2D g) {
+        if(isReady) {
+            g.drawImage(frames[currentFrame],position.x,position.y,null);
+        }
+    }
+
+    private void nextFrame() {
+        ++currentFrame;
+        if(currentFrame == frameCount) {
+            currentFrame = 0;
+        }
+    }
 }

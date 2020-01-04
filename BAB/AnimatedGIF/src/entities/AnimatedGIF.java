@@ -33,13 +33,11 @@ public class AnimatedGIF {
 
     public void draw(Graphics2D g) {
         if(isReady) {
-            System.out.println(position.x + " " + position.y + " " + currentFrame + " " + frameCount);
             g.drawImage(frames[currentFrame],position.x,position.y,null);
         }
     }
 
     public void nextFrame() {
-        System.out.println("I got here");
         //System.out.println(currentFrame + " becomes " + currentFrame + 1);
         ++currentFrame;
         if(currentFrame >= frameCount) {

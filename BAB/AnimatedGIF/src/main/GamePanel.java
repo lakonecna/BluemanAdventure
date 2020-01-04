@@ -53,11 +53,9 @@ public class GamePanel extends JPanel implements Runnable{
             catch (Exception e) {
                 e.printStackTrace();
             }
+            gif.nextFrame();
+            repaint();
         }
-        System.out.println("but did i get here");
-        gif.nextFrame();
-        System.out.println("and here too...");
-        repaint();
     }
 
     protected void paintComponent(Graphics g) {

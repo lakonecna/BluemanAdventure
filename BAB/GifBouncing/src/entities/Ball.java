@@ -18,7 +18,7 @@ public class Ball {
         point = new Point(x,y);
         this.displacement = displacement;
         init();
-        this.radius = gif.imageWIDTH;
+        this.radius = gif.imageWIDTH / 2;
     }
 
     public void setX(int x) { point.x = x; }
@@ -44,7 +44,7 @@ public class Ball {
         catch(IOException ioe) {
             ioe.printStackTrace();
         }*/
-       gif = new AnimatedGIF(100,100);
+       gif = new AnimatedGIF(point.x,point.y);
        gif.readGIF("/ball/ball.gif");
 
     }

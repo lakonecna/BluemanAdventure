@@ -16,7 +16,7 @@ public class GamePanel extends JPanel implements Runnable{
     private Ball ball;
     private Thread thread;
     private boolean running;
-    private int fps = 30;
+    private int fps = 60;
     private long timePerFrame = 1000 / fps;
 
     public GamePanel() {
@@ -74,7 +74,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(backGround,0,0,null);
-        ball.draw((Graphics2D) g);
+        if(backGround != null) { g.drawImage(backGround,0,0,null); }
+        if(ball != null) { ball.draw((Graphics2D) g); }
     }
 }

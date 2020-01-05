@@ -54,6 +54,7 @@ public class Ball {
         point.y += displacement.getY();
         possiblyBounce();
         gif.setPoint(point.x,point.y);
+        gif.nextFrame();
     }
 
     public void possiblyBounce() {

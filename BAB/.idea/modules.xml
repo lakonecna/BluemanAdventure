@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/SimpleGraphicsProject/SimpleGraphicsProject.iml" filepath="$PROJECT_DIR$/SimpleGraphicsProject/SimpleGraphicsProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/StarField/StarField.iml" filepath="$PROJECT_DIR$/StarField/StarField.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestAntWithIntelliJ/TestAntWithIntelliJ.iml" filepath="$PROJECT_DIR$/TestAntWithIntelliJ/TestAntWithIntelliJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UniPong/UniPong.iml" filepath="$PROJECT_DIR$/UniPong/UniPong.iml" />
       <module fileurl="file://$PROJECT_DIR$/imageprocessing/imageprocessing.iml" filepath="$PROJECT_DIR$/imageprocessing/imageprocessing.iml" />
       <module fileurl="file://$PROJECT_DIR$/SimpleGraphicsProject/main.iml" filepath="$PROJECT_DIR$/SimpleGraphicsProject/main.iml" />
     </modules>

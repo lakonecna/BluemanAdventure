@@ -16,7 +16,7 @@ public class GamePanel extends JPanel implements Runnable{
     private Ball ball;
     private Thread thread;
     private boolean running;
-    private int fps = 60;
+    private int fps = 120;
     private long timePerFrame = 1000 / fps;
 
     public GamePanel() {
@@ -63,7 +63,6 @@ public class GamePanel extends JPanel implements Runnable{
             catch(Exception e) {
                 e.printStackTrace();
             }
-            update();
             repaint();
         }
     }

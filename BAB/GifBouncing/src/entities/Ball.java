@@ -18,7 +18,6 @@ public class Ball {
         point = new Point(x,y);
         this.displacement = displacement;
         init();
-        this.radius = gif.imageWIDTH / 2;
     }
 
     public void setX(int x) { point.x = x; }
@@ -38,14 +37,9 @@ public class Ball {
     public Vector2D getDisplacement() { return displacement; }
 
     private void init() {
-       /* try {
-            image = ImageIO.read(getClass().getResourceAsStream("/rotatingBallAnimation/image (0).png"));
-        }
-        catch(IOException ioe) {
-            ioe.printStackTrace();
-        }*/
        gif = new AnimatedGIF(point.x,point.y);
        gif.readGIF("/ball/ball.gif");
+       radius = gif.imageWIDTH / 2;
 
     }
 
@@ -74,10 +68,6 @@ public class Ball {
             point.y = GamePanel.HEIGHT - (2 * radius) - 1;
             displacement.setY(-displacement.getY());
         }
-    }
-
-    public void nextFrame() {
-        gif.nextFrame();
     }
 
     public void draw(Graphics2D g) {

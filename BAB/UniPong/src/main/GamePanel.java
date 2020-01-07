@@ -1,6 +1,7 @@
 package main;
 
 import entities.Ball;
+import entities.Pinger;
 import math.Vector2D;
 
 import javax.imageio.ImageIO;
@@ -17,6 +18,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     public static final int WIDTH = 640;
     public static final int HEIGHT = 480;
     private Ball ball;
+    private Pinger pinger;
     private BufferedImage background;
     private Thread thread;
     private int fps = 120;
@@ -48,6 +50,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             e.printStackTrace();
         }
         ball = new Ball(0,0,new Vector2D(2,3));
+        pinger = new Pinger();
+
     }
 
     public void run() {
@@ -82,6 +86,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         }
         if(ball != null) {
             ball.drawBall((Graphics2D) g);
+        }
+        if(pinger != null) {
+            pinger.drawPinger((Graphics2D) g);
         }
     }
 

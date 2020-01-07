@@ -28,7 +28,7 @@ public class Pinger {
 
     private void init() {
         try {
-            pinger = ImageIO.read(getClass().getResourceAsStream("pinger.png"));
+            pinger = ImageIO.read(getClass().getResourceAsStream("/pinger.png"));
         }
         catch(Exception e) {
             e.printStackTrace();

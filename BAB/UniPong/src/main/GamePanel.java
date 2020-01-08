@@ -94,20 +94,11 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
     public void keyTyped(KeyEvent k) {
-        System.out.println("I get here first");
-        if(k.getKeyCode() == KeyEvent.VK_UP) {
-            System.out.println("I get here");
-            pinger.moveUp();
-        }
-        if(k.getKeyCode() == KeyEvent.VK_DOWN) {
-            pinger.moveDown();
-        }
+        // will this be needed?
     }
 
     public void keyPressed(KeyEvent k) {
-        System.out.println("I get heree first");
         if(k.getKeyCode() == KeyEvent.VK_UP) {
-            System.out.println("I get heree");
             pinger.moveUp();
         }
         if(k.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -116,13 +107,6 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
     public void keyReleased(KeyEvent k) {
-        System.out.println("I get hereee first");
-        if(k.getKeyCode() == KeyEvent.VK_UP) {
-            System.out.println("I get hereee");
-            pinger.moveUp();
-        }
-        if(k.getKeyCode() == KeyEvent.VK_DOWN) {
-            pinger.moveDown();
-        }
+        // will this be needed?
     }
 }

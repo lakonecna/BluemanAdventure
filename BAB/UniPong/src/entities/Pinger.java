@@ -40,12 +40,12 @@ public class Pinger {
     }
 
     public void moveDown() {
-        position.y += 20;
+        position.y += 10;
         possiblyBounce();
     }
 
     public void moveUp() {
-        position.y -= 20;
+        position.y -= 10;
         possiblyBounce();
     }
 

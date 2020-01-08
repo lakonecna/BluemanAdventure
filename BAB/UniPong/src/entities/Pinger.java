@@ -15,9 +15,9 @@ public class Pinger {
 
     public Pinger() {
         position = new Point();
-        position.x = fromWall;
-        position.y = GamePanel.HEIGHT / 2 - height / 2 - 1;
         init();
+        position.x = fromWall ;
+        position.y = GamePanel.HEIGHT / 2 - height / 2 - 1 ;
     }
     public void setPosition(Point position) { this.position = position; }
     public void setWidth(int width) { this.width = width; }
@@ -40,12 +40,12 @@ public class Pinger {
     }
 
     public void moveDown() {
-        position.y += 2;
+        position.y += 20;
         possiblyBounce();
     }
 
     public void moveUp() {
-        position.y -= 2;
+        position.y -= 20;
         possiblyBounce();
     }
 
@@ -70,6 +70,7 @@ public class Pinger {
     public void drawPinger(Graphics2D g) {
         if(pinger != null) {
             g.drawImage(pinger,position.x,position.y,null);
+            System.out.println(position.x + "_" + position.y);
         }
     }
 }

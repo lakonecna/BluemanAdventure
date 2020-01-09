@@ -20,6 +20,7 @@ public class Overlap2DDecider {
         pointsShape2 = shape2Points;
         getShapeTypes();
         if(areLegalShapes()) {
+            //System.out.println("Legal Shapes");
             setOverlapping();
         }
     }
@@ -44,6 +45,7 @@ public class Overlap2DDecider {
     // currently for 2 rectangles only
     private void setOverlapping() {
         if(are2Rectangles) { // overlapping if either shape is in the other
+            //System.out.println("In setOverlapping: are2Rectangles");
             overlapping = isRect1inRect2(pointsShape1,pointsShape2) ||
                     isRect1inRect2(pointsShape2,pointsShape1);
         }
@@ -59,21 +61,43 @@ public class Overlap2DDecider {
     private boolean isRect1inRect2(Point[] rect1, Point[] rect2) {
         // if any 1 of 1's corners is withing xlines and ylines of 2, true, else false
        if(are2Rectangles) {
+           //System.out.println("2 rects in isRect1inRect2");
            int xLine2a = rect2[0].x;
-           int xLine2b = rect2[3].x;
+           int xLine2b = rect2[2].x;
            int yLine2a = rect2[0].y;
-           int yLine2b = rect2[2].y;
+           int yLine2b = rect2[1].y;
+           /*
+           System.out.println("Lines:_" + xLine2a + "_" + xLine2b + "_" + yLine2a + "_" + yLine2b);
+           for (Point i: rect1) {
+               System.out.println(i.x + "_" + i.y);
+           }
+           for (Point i: rect2) {
+               System.out.println(i.x + "_" + i.y);
+           }
+            */
            if( xLine2a <= rect1[0].x && rect1[0].x < xLine2b ) {
-               return yLine2a <= rect1[0].y && rect1[0].y < yLine2b;
+               if( yLine2a <= rect1[0].y && rect1[0].y < yLine2b ) {
+                   //System.out.println("Rect in rect");
+                   return true;
+               }
            }
            if( xLine2a <= rect1[1].x && rect1[1].x < xLine2b ) {
-               return yLine2a <= rect1[1].y && rect1[1].y < yLine2b;
+               if( yLine2a <= rect1[1].y && rect1[1].y < yLine2b ) {
+                   //System.out.println("Rect in rect");
+                    return true;
+               }
            }
            if( xLine2a <= rect1[2].x && rect1[2].x < xLine2b ) {
-               return yLine2a <= rect1[2].y && rect1[2].y < yLine2b;
+               if( yLine2a <= rect1[2].y && rect1[2].y < yLine2b ) {
+                   //System.out.println("Rect in rect");
+                   return true;
+               }
            }
            if( xLine2a <= rect1[3].x && rect1[3].x < xLine2b ) {
-               return yLine2a <= rect1[3].y && rect1[3].y < yLine2b;
+               if( yLine2a <= rect1[3].y && rect1[3].y < yLine2b ) {
+                   //System.out.println("Rect in rect");
+                   return true;
+               }
            }
        }
        return false;

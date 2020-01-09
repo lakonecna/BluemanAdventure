@@ -78,10 +78,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
     private void update() {
-        ball.update();
-        if(doesPingerHitBall()) {
-            System.out.println("Pinger hit ball.");
-        }
+        ball.update(pinger);
     }
 
     protected void paintComponent(Graphics g) {
@@ -114,14 +111,4 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         // will this be needed?
     }
 
-    private boolean doesPingerHitBall() {
-        //TODO
-        // if the ball's rectangle overlaps with the pinger's
-        // return true, else false
-        // later update so true is only returned if
-        // there is overlap between
-        // pinger's rectangle and ball's sphere
-        Overlap2DDecider decider = new Overlap2DDecider(ball.getCorners(), pinger.getCorners());
-        return decider.getOverlapping();
-    }
 }

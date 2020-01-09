@@ -34,10 +34,13 @@ public class Ball {
         radius = gif.getImageWIDTH() / 2;
     }
 
-    public void update() {
+    public void update(Pinger pinger) {
         position.x += displacement.getX();
         position.y += displacement.getY();
-        possiblyBounce();
+        possiblyBounceFromWall();
+        if(pingerHitsBall()) {
+            bounceFromPinger(pinger);
+        }
         if(gif != null) {
             gif.setPosition(position);
             gif.nextFrame();
@@ -45,15 +48,11 @@ public class Ball {
     }
 
     //TODO later//////////////////////////////////////////////////////
-    private void possiblyBounceFromPinger(Pinger pinger) {
-        if(position.x == pinger.getPosition().x) {
-            if(pinger.hitsBall(this)) {
-                //...
-            } // is it along the edge of pinger
-        }
-    } /////////////////////////////////////////////////////////////////
+    private void bounceFromPinger(Pinger pinger) {
+        
+    }
 
-    private void possiblyBounce() {
+    private void possiblyBounceFromWall() {
         if(position.x < 0) {
             position.x = 0;
             displacement.setX(-displacement.getX());
@@ -78,7 +77,18 @@ public class Ball {
         }
     }
 
-    public Point[] getCorners() {
+    private boolean pingerHitsBall(Pinger pinger) {
+        //TODO
+        // if the ball's rectangle overlaps with the pinger's
+        // return true, else false
+        // later update so true is only returned if
+        // there is overlap between
+        // pinger's rectangle and ball's sphere
+        Overlap2DDecider decider = new Overlap2DDecider(getCorners(), pinger.getCorners());
+        return decider.getOverlapping();
+    }
+
+    private Point[] getCorners() {
         Point[] corners = new Point[4];
         corners[0] = new Point(position);
         corners[1] = new Point(position.x,position.y + radius * 2);

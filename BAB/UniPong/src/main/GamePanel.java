@@ -1,6 +1,7 @@
 package main;
 
 import entities.Ball;
+import entities.Overlap2DDecider;
 import entities.Pinger;
 import math.Vector2D;
 
@@ -78,6 +79,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 
     private void update() {
         ball.update();
+        if(doesPingerHitBall()) {
+            System.out.println("Pinger hit ball.");
+        }
     }
 
     protected void paintComponent(Graphics g) {
@@ -108,5 +112,16 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 
     public void keyReleased(KeyEvent k) {
         // will this be needed?
+    }
+
+    private boolean doesPingerHitBall() {
+        //TODO
+        // if the ball's rectangle overlaps with the pinger's
+        // return true, else false
+        // later update so true is only returned if
+        // there is overlap between
+        // pinger's rectangle and ball's sphere
+        Overlap2DDecider decider = new Overlap2DDecider(ball.getCorners(), pinger.getCorners());
+        return decider.getOverlapping();
     }
 }

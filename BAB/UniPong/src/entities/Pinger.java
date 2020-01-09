@@ -4,6 +4,7 @@ import main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
 public class Pinger {
@@ -70,7 +71,16 @@ public class Pinger {
     public void drawPinger(Graphics2D g) {
         if(pinger != null) {
             g.drawImage(pinger,position.x,position.y,null);
-            System.out.println(position.x + "_" + position.y);
+            //System.out.println(position.x + "_" + position.y);
         }
+    }
+
+    public Point[] getCorners() {
+        Point[] corners = new Point[4];
+        corners[0] = new Point(position);
+        corners[1] = new Point(position.x,position.y + height);
+        corners[2] = new Point(position.x + width,position.y);
+        corners[3] = new Point(position.x + width,position.y + height);
+        return corners;
     }
 }

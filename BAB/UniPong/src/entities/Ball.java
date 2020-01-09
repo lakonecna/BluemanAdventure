@@ -21,10 +21,12 @@ public class Ball {
     public int getY() { return position.y; }
     public int getRadius() {return radius;}
     public Vector2D getDisplacement() { return displacement; }
+    public AnimatedGIF getGif() { return gif; }
     public void setX(int x) { position.x = x; }
     public void setY(int y) { position.y = y; }
     public void setRadius(int radius) { this.radius = radius; }
     public void setDisplacement(Vector2D displacement) { this.displacement = displacement; }
+    public void setGif(AnimatedGIF gif) { this.gif = gif; }
 
     public void init() {
         gif = new AnimatedGIF(position);
@@ -74,5 +76,14 @@ public class Ball {
         if(gif != null) {
             gif.draw(g);
         }
+    }
+
+    public Point[] getCorners() {
+        Point[] corners = new Point[4];
+        corners[0] = new Point(position);
+        corners[1] = new Point(position.x,position.y + radius * 2);
+        corners[2] = new Point(position.x + radius * 2,position.y);
+        corners[3] = new Point(position.x + radius * 2,position.y + radius * 2);
+        return corners;
     }
 }

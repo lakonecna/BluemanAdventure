@@ -38,6 +38,7 @@ public class Ball {
         gif = new AnimatedGIF(position);
         gif.readGIF("/ball/ball.gif");
         radius = gif.getImageWIDTH() / 2;
+        isBouncing = true;
     }
 
     public void update(Pinger pinger) {
@@ -129,8 +130,9 @@ public class Ball {
 
     private void possiblyBounceFromWall() {
         if(position.x < 0) {
-            position.x = 0;
-            displacement.setX(-displacement.getX());
+            //position.x = 0;
+            //displacement.setX(-displacement.getX());
+            if(position.x == -(2 * radius)) { isBouncing = false; }
         }
         if(position.x > GamePanel.WIDTH - (2 * radius) - 1) {
             position.x = GamePanel.WIDTH - (2 * radius) - 1;

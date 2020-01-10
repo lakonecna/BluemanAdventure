@@ -79,6 +79,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 
     private void update() {
         ball.update(pinger);
+        if(!ball.isBouncing()) { running = false; }
     }
 
     protected void paintComponent(Graphics g) {

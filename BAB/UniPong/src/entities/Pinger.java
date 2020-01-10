@@ -57,12 +57,12 @@ public class Pinger {
     }
 
     public void moveDown() {
-        position.y += 10;
+        position.y += 20;
         possiblyBounce();
     }
 
     public void moveUp() {
-        position.y -= 10;
+        position.y -= 20;
         possiblyBounce();
     }
 

@@ -6,6 +6,7 @@ import math.Vector2D;
 import java.awt.*;
 
 import static java.lang.Math.abs;
+import static java.lang.Math.min;
 
 public class Ball {
     private Point position;
@@ -49,18 +50,17 @@ public class Ball {
         }
     }
 
-    //TODO later//////////////////////////////////////////////////////
     private void bounceFromPinger(Pinger pinger) {
         // possible method: find the distance of ball center from
         // the ends of each wall, find average for each wall
         // smallest is the one that must be touching the wall
         // if bottom or top, invert the y component of vector
         // if side, invert the x component of the vector
+        Point ballCenter = new Point(position.x + radius,position.y + radius);
         Point[] corners = pinger.getCorners();
         double[] distances = new double[4];
         double d1;
         double d2;
-        Point ballCenter = new Point(position.x + radius,position.y + radius);
 
         // average distance from north wall (elements 0 and 2)
         d1 = abs((ballCenter.y - corners[0].y) / (ballCenter.x - corners[0].x));
@@ -69,17 +69,14 @@ public class Ball {
 
         // average distance from east wall (elements 2 and 3)
         d1 = abs((ballCenter.y - corners[3].y) / (ballCenter.x - corners[3].x));
-        // d2 = abs((ballCenter.y - corners[2].y) / (ballCenter.x - corners[2].x));
         distances[1] = (d1 + d2) / 2;
 
         // average distance from south wall (elements 1 and 3)
-        // d1 = abs((ballCenter.y - corners[3].y) / (ballCenter.x - corners[3].x));
         d2 = abs((ballCenter.y - corners[1].y) / (ballCenter.x - corners[1].x));
         distances[2] = (d1 + d2) / 2;
 
         // average distance from west wall (elements 0 and 1)
         d1 = abs((ballCenter.y - corners[0].y) / (ballCenter.x - corners[0].x));
-        // d2 = abs((ballCenter.y - corners[1].y) / (ballCenter.x - corners[1].x));
         distances[3] = (d1 + d2) / 2;
 
         // optionally cases when corners of pinger are reflecting can also be covered,
@@ -87,14 +84,14 @@ public class Ball {
         // both of the balls vectors components can be inverted
         // TODO
 
-        // get minimum distance wall (from ball center)
         double minDistance = getMinElement(distances);
-        // depending on which dist is shortest, invert component of
-        // displacement vector
-        if(distances[0] == minDistance) {
+
+        if(distances[0] == minDistance || distances[2] == minDistance) {
             displacement.setY(-displacement.getY());
         }
-        else 
+        else if(distances[1] == minDistance || distances[3] == minDistance) {
+            displacement.setX(-displacement.getX());
+        }
     }
 
     private double getMinElement(double[] array) {

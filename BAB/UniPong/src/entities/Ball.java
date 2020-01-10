@@ -13,6 +13,7 @@ public class Ball {
     private int radius;
     private Vector2D displacement;
     private AnimatedGIF gif;
+    private boolean isBouncing = false;
 
     public Ball(int x,int y, Vector2D displacement) {
         position = new Point(x,y);
@@ -25,11 +26,13 @@ public class Ball {
     public int getRadius() {return radius;}
     public Vector2D getDisplacement() { return displacement; }
     public AnimatedGIF getGif() { return gif; }
+    public boolean isBouncing() { return isBouncing; }
     public void setX(int x) { position.x = x; }
     public void setY(int y) { position.y = y; }
     public void setRadius(int radius) { this.radius = radius; }
     public void setDisplacement(Vector2D displacement) { this.displacement = displacement; }
     public void setGif(AnimatedGIF gif) { this.gif = gif; }
+    private void isBouncing(boolean isBouncing) { this.isBouncing = isBouncing; }
 
     public void init() {
         gif = new AnimatedGIF(position);
@@ -63,20 +66,20 @@ public class Ball {
         double d2;
 
         // average distance from north wall (elements 0 and 2)
-        d1 = abs((ballCenter.y - corners[0].y) / (ballCenter.x - corners[0].x));
-        d2 = abs((ballCenter.y - corners[2].y) / (ballCenter.x - corners[2].x));
+        d1 = abs((ballCenter.y - corners[0].y) / notZero(ballCenter.x - corners[0].x));
+        d2 = abs((ballCenter.y - corners[2].y) / notZero(ballCenter.x - corners[2].x));
         distances[0] = (d1 + d2) / 2;
 
         // average distance from east wall (elements 2 and 3)
-        d1 = abs((ballCenter.y - corners[3].y) / (ballCenter.x - corners[3].x));
+        d1 = abs((ballCenter.y - corners[3].y) / notZero(ballCenter.x - corners[3].x));
         distances[1] = (d1 + d2) / 2;
 
         // average distance from south wall (elements 1 and 3)
-        d2 = abs((ballCenter.y - corners[1].y) / (ballCenter.x - corners[1].x));
+        d2 = abs((ballCenter.y - corners[1].y) / notZero(ballCenter.x - corners[1].x));
         distances[2] = (d1 + d2) / 2;
 
         // average distance from west wall (elements 0 and 1)
-        d1 = abs((ballCenter.y - corners[0].y) / (ballCenter.x - corners[0].x));
+        d1 = abs((ballCenter.y - corners[0].y) / notZero(ballCenter.x - corners[0].x));
         distances[3] = (d1 + d2) / 2;
 
         // optionally cases when corners of pinger are reflecting can also be covered,
@@ -106,6 +109,11 @@ public class Ball {
             System.out.println("west:" + position.x);
             displacement.setX(-displacement.getX());
         }
+    }
+
+    private double notZero(double number) {
+        if(number == 0) { return 0.0000000000001; }
+        return number;
     }
 
     private double getMinElement(double[] array) {

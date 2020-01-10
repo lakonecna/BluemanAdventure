@@ -86,10 +86,20 @@ public class Ball {
 
         double minDistance = getMinElement(distances);
 
-        if(distances[0] == minDistance || distances[2] == minDistance) {
+        if(distances[0] == minDistance) { //N
+            position.y = pinger.getNorthLimit();
             displacement.setY(-displacement.getY());
         }
-        else if(distances[1] == minDistance || distances[3] == minDistance) {
+        else if(distances[1] == minDistance) { //E
+            position.x = pinger.getEastLimit();
+            displacement.setX(-displacement.getX());
+        }
+        else if(distances[2] == minDistance) { //S
+            position.y = pinger.getSouthLimit();
+            displacement.setY(-displacement.getY());
+        }
+        else if(distances[3] == minDistance) { //W
+            position.x = pinger.getWestLimit();
             displacement.setX(-displacement.getX());
         }
     }

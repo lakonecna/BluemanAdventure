@@ -40,6 +40,22 @@ public class Pinger {
         }
     }
 
+    public int getNorthLimit() {
+        return position.y;
+    }
+
+    public int getEastLimit() {
+        return position.x + width;
+    }
+
+    public int getSouthLimit() {
+        return position.y + height;
+    }
+
+    public int getWestLimit() {
+        return position.x;
+    }
+
     public void moveDown() {
         position.y += 10;
         possiblyBounce();

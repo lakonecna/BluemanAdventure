@@ -88,18 +88,22 @@ public class Ball {
 
         if(distances[0] == minDistance) { //N
             position.y = pinger.getNorthLimit();
+            System.out.println("north:" + position.y);
             displacement.setY(-displacement.getY());
         }
         else if(distances[1] == minDistance) { //E
             position.x = pinger.getEastLimit();
+            System.out.println("east:" + position.x);
             displacement.setX(-displacement.getX());
         }
         else if(distances[2] == minDistance) { //S
             position.y = pinger.getSouthLimit();
+            System.out.println("south:" + position.y);
             displacement.setY(-displacement.getY());
         }
         else if(distances[3] == minDistance) { //W
             position.x = pinger.getWestLimit();
+            System.out.println("west:" + position.x);
             displacement.setX(-displacement.getX());
         }
     }
@@ -121,7 +125,7 @@ public class Ball {
             displacement.setX(-displacement.getX());
         }
         if(position.x > GamePanel.WIDTH - (2 * radius) - 1) {
-            position.y = GamePanel.WIDTH - (2 * radius) - 1;
+            position.x = GamePanel.WIDTH - (2 * radius) - 1;
             displacement.setX(-displacement.getX());
         }
         if(position.y < 0) {

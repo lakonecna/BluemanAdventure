@@ -95,20 +95,44 @@ public class Ball {
             System.out.println("north:" + position.y);
             displacement.setY(-displacement.getY());
         }
+        else if(distances[0] == minDistance && distances[1] == minDistance) {
+            //position.x = pinger.;
+            //position.y =
+            displacement.setX(-displacement.getX());
+            displacement.setY(-displacement.getY());
+        }
         else if(distances[1] == minDistance) { //E
             position.x = pinger.getEastLimit();
             System.out.println("east:" + position.x);
             displacement.setX(-displacement.getX());
+        }
+        else if(distances[1] == minDistance && distances[2] == minDistance) {
+            //position.x = pinger.;
+            //position.y =
+            displacement.setX(-displacement.getX());
+            displacement.setY(-displacement.getY());
         }
         else if(distances[2] == minDistance) { //S
             position.y = pinger.getSouthLimit();
             System.out.println("south:" + position.y);
             displacement.setY(-displacement.getY());
         }
+        else if(distances[2] == minDistance && distances[3] == minDistance) {
+            //position.x = pinger.;
+            //position.y =
+            displacement.setX(-displacement.getX());
+            displacement.setY(-displacement.getY());
+        }
         else if(distances[3] == minDistance) { //W
             position.x = pinger.getWestLimit();
             System.out.println("west:" + position.x);
             displacement.setX(-displacement.getX());
+        }
+        else if(distances[3] == minDistance && distances[0] == minDistance) {
+            //position.x = pinger.;
+            //position.y =
+            displacement.setX(-displacement.getX());
+            displacement.setY(-displacement.getY());
         }
     }
 

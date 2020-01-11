@@ -16,17 +16,15 @@ public class MenuState extends State {
         currentOptionIndex = 0;
         init();
     }
-    @Override
+
     public void init() {
         background.readGIF("/menubg.gif");
     }
 
-    @Override
     public void update() {
         background.nextFrame();
     }
 
-    @Override
     public void paint(Graphics2D g) {
         //TODO styling here
     }

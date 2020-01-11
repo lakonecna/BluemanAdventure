@@ -1,0 +1,35 @@
+Game Design Document 
+	Title Page
+		Game Name and high concept description
+			BluemanAdventure
+			Blueman needs to pass a number of platformed
+			levels to save his father, the Elemental King.
+	Game Overview
+		Game concept
+			Go from each level's start to each level's end.
+			Loose at most 200 health points per level.
+			If all levels are passed, the king is freed.
+		Genre
+			Platformer
+			Adventure
+			Pixelated
+			Puzzle (maybe)
+			Mystery
+		Target Audience
+			10 year old children
+		Game Flow Summary
+			States:
+				WelcomeState 	(Enter)*
+				MenuState		(Saved Games, Options, Quit)*
+				QuitState		(-)*
+				OptionsState	(Sound, Back -> Menustate)
+				SavedGamesState	(SaveName/-, SaveName/-, SaveName/-)	
+				SaveInitState	(Resume, Erase)
+				SoundOptionState(Ok -> Optionstate)
+				EraseSaveState	(Yes -> SavedGamesState, No -> SaveInitState)
+				NewGameInitState(Enter -> NewGameState, esc -> SavedGamesState)
+				NewGameState	(Yes, No -> NewGameInitState)
+				GameState		(Win -> WinState, Progress -> NextLevelState, Die -> GameOverState, Q -> QState)
+				WinState		(Enter -> MenuState)
+				NextLevelState	(Yes -> SaveGameState
+				

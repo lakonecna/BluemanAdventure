@@ -34,6 +34,16 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         requestFocus();
     }
 
+    public void restart() {
+        thread = null;
+        if(thread == null) {
+            thread = new Thread(this);
+            addKeyListener(this);
+            thread.start();
+        }
+        running = true;
+    }
+
     public void addNotify() {
         super.addNotify();
         if(thread == null) {
@@ -105,6 +115,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         }
         if(k.getKeyCode() == KeyEvent.VK_DOWN) {
             pinger.moveDown();
+        }
+        if(k.getKeyCode() == KeyEvent.VK_R) {
+            restart();
         }
     }
 

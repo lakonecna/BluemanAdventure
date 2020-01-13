@@ -10,6 +10,7 @@ import static java.lang.Math.min;
 
 public class Ball {
     private Point position;
+    private Point prevPosition;
     private int radius;
     private Vector2D displacement;
     private AnimatedGIF gif;
@@ -26,12 +27,14 @@ public class Ball {
     public int getRadius() {return radius;}
     public Vector2D getDisplacement() { return displacement; }
     public AnimatedGIF getGif() { return gif; }
+    public Point getPrevPosition() { return prevPosition; }
     public boolean isBouncing() { return isBouncing; }
     public void setX(int x) { position.x = x; }
     public void setY(int y) { position.y = y; }
     public void setRadius(int radius) { this.radius = radius; }
     public void setDisplacement(Vector2D displacement) { this.displacement = displacement; }
     public void setGif(AnimatedGIF gif) { this.gif = gif; }
+    public void setPrevPosition(Point prevPosition) { this.prevPosition = prevPosition; }
     private void isBouncing(boolean isBouncing) { this.isBouncing = isBouncing; }
 
     public void init() {
@@ -42,10 +45,12 @@ public class Ball {
     }
 
     public void update(Pinger pinger) {
+        prevPosition = new Point(position);
         position.x += displacement.getX();
         position.y += displacement.getY();
         possiblyBounceFromWall();
-        if(pingerHitsBall(pinger)) {
+        Overlap2DDecider decider = new Overlap2DDecider(getCorners(), pinger.getCorners());
+        if(pingerHitsBall(pinger,decider)) {
             bounceFromPinger(pinger);
         }
         if(gif != null) {
@@ -91,7 +96,7 @@ public class Ball {
         double minDistance = getMinElement(distances);
 
         if(distances[0] == minDistance) { //N
-            position.y = pinger.getNorthLimit();
+            ///position.y = pinger.getNorthLimit();
             System.out.println("north:" + position.y);
             displacement.setY(-displacement.getY());
         }
@@ -102,7 +107,7 @@ public class Ball {
             displacement.setY(-displacement.getY());
         }
         else if(distances[1] == minDistance) { //E
-            position.x = pinger.getEastLimit();
+            ///position.x = pinger.getEastLimit();
             System.out.println("east:" + position.x);
             displacement.setX(-displacement.getX());
         }
@@ -113,7 +118,7 @@ public class Ball {
             displacement.setY(-displacement.getY());
         }
         else if(distances[2] == minDistance) { //S
-            position.y = pinger.getSouthLimit();
+            ///position.y = pinger.getSouthLimit();
             System.out.println("south:" + position.y);
             displacement.setY(-displacement.getY());
         }
@@ -124,7 +129,7 @@ public class Ball {
             displacement.setY(-displacement.getY());
         }
         else if(distances[3] == minDistance) { //W
-            position.x = pinger.getWestLimit();
+            ///position.x = pinger.getWestLimit();
             System.out.println("west:" + position.x);
             displacement.setX(-displacement.getX());
         }
@@ -134,22 +139,7 @@ public class Ball {
             displacement.setX(-displacement.getX());
             displacement.setY(-displacement.getY());
         }
-    }
-
-    private double notZero(double number) {
-        if(number == 0) { return 0.0000000000001; }
-        return number;
-    }
-
-    private double getMinElement(double[] array) {
-        double curMin = array[0];
-        for (double d :
-                array) {
-            if (d < curMin) {
-                curMin = d;
-            }
-        }
-        return curMin;
+        returnToPreviousPosition();
     }
 
     private void possiblyBounceFromWall() {
@@ -178,15 +168,12 @@ public class Ball {
         }
     }
 
-    private boolean pingerHitsBall(Pinger pinger) {
-        //TODO
-        // if the ball's rectangle overlaps with the pinger's
-        // return true, else false
-        // later update so true is only returned if
-        // there is overlap between
-        // pinger's rectangle and ball's sphere
-        Overlap2DDecider decider = new Overlap2DDecider(getCorners(), pinger.getCorners());
+    private boolean pingerHitsBall(Pinger pinger, Overlap2DDecider decider) {
         return decider.getOverlapping();
+    }
+
+    private void returnToPreviousPosition() {
+        position = new Point(prevPosition);
     }
 
     private Point[] getCorners() {
@@ -196,5 +183,21 @@ public class Ball {
         corners[2] = new Point(position.x + radius * 2,position.y);
         corners[3] = new Point(position.x + radius * 2,position.y + radius * 2);
         return corners;
+    }
+
+    private double notZero(double number) {
+        if(number == 0) { return 0.0000000000001; }
+        return number;
+    }
+
+    private double getMinElement(double[] array) {
+        double curMin = array[0];
+        for (double d :
+                array) {
+            if (d < curMin) {
+                curMin = d;
+            }
+        }
+        return curMin;
     }
 }

@@ -6,6 +6,7 @@ public class Overlap2DDecider {
     // works only of rectangle and circle combinations
     Point[] pointsShape1;
     Point[] pointsShape2;
+    double overlapArea;
     boolean are2Rectangles = false;
     boolean areSphereAndRectangle = false;
     boolean areRectangleAndSphere = false;
@@ -46,12 +47,45 @@ public class Overlap2DDecider {
     private void setOverlapping() {
         if(are2Rectangles) { // overlapping if either shape is in the other
             //System.out.println("In setOverlapping: are2Rectangles");
-            overlapping = isRect1inRect2(pointsShape1,pointsShape2) ||
-                    isRect1inRect2(pointsShape2,pointsShape1);
+            if(isRect1inRect2(pointsShape1,pointsShape2) ||
+                    isRect1inRect2(pointsShape2,pointsShape1)) {
+                overlapping = true;
+                setOverlapArea();
+            }
         }
         else if(areRectangleAndSphere) { overlapping = false; }
         else if(areSphereAndRectangle) { overlapping = false; }
         else if(are2Spheres) { overlapping = false; }
+    }
+
+    private void setOverlapArea() {
+        if(are2Rectangles) {
+            int r1x1 = pointsShape1[0].x; // rectangle 1 x axis 1...
+            int r1x2 = pointsShape1[2].x;
+            int r1y1 = pointsShape1[0].y;
+            int r1y2 = pointsShape1[1].y;
+            int r2x1 = pointsShape2[0].x;
+            int r2x2 = pointsShape2[2].x;
+            int r2y1 = pointsShape2[0].y;
+            int r2y2 = pointsShape2[1].y;
+            double xAxisOverlap = Math.max(0,Math.min(r1x1,r2x1) - Math.max(r1x2,r2x2));
+            double yAxisOverlap = Math.max(0, Math.min(r1y1,r2y1) - Math.max(r1y2,r2y2));
+            overlapArea = xAxisOverlap * yAxisOverlap;
+            System.out.println("oA is:" + overlapArea);
+        }
+        else if(areRectangleAndSphere) {
+            overlapArea = 0;
+        }
+        else if(areSphereAndRectangle) {
+            overlapArea = 0;
+        }
+        else if(are2Spheres) {
+            overlapArea = 0;
+        }
+    }
+
+    public double getOverlapArea() {
+        return overlapArea;
     }
 
     public boolean getOverlapping() {

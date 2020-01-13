@@ -45,12 +45,15 @@ public class Ball {
     }
 
     public void update(Pinger pinger) {
-        prevPosition = new Point(position);
+        prevPosition = new Point(position.x,position.y);
         position.x += displacement.getX();
         position.y += displacement.getY();
+        System.out.println("PrevPos:" + prevPosition.x + "_" + prevPosition.y + "New pos:" + position.x + "_" + position.y);
         possiblyBounceFromWall();
         Overlap2DDecider decider = new Overlap2DDecider(getCorners(), pinger.getCorners());
         if(pingerHitsBall(pinger,decider)) {
+            System.out.println("pingerHitsBall TRUE");
+            System.out.println("Displacement(x,y):" + displacement.getX() + "_" + displacement.getY());
             bounceFromPinger(pinger);
         }
         if(gif != null) {
@@ -99,67 +102,88 @@ public class Ball {
             ///position.y = pinger.getNorthLimit();
             System.out.println("north:" + position.y);
             displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by NPing:" + displacement.getX() + "_" + displacement.getY());
         }
         else if(distances[0] == minDistance && distances[1] == minDistance) {
             //position.x = pinger.;
             //position.y =
+            System.out.println("Hitting NE");
             displacement.setX(-displacement.getX());
             displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by NEPing:" + displacement.getX() + "_" + displacement.getY());
         }
         else if(distances[1] == minDistance) { //E
             ///position.x = pinger.getEastLimit();
             System.out.println("east:" + position.x);
             displacement.setX(-displacement.getX());
+            System.out.println("Displacement changed by EPing:" + displacement.getX() + "_" + displacement.getY());
         }
         else if(distances[1] == minDistance && distances[2] == minDistance) {
             //position.x = pinger.;
             //position.y =
+            System.out.println("Hitting SE");
             displacement.setX(-displacement.getX());
             displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by SEPing:" + displacement.getX() + "_" + displacement.getY());
         }
         else if(distances[2] == minDistance) { //S
             ///position.y = pinger.getSouthLimit();
             System.out.println("south:" + position.y);
             displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by SPing:" + displacement.getX() + "_" + displacement.getY());
         }
         else if(distances[2] == minDistance && distances[3] == minDistance) {
             //position.x = pinger.;
             //position.y =
+            System.out.println("Hitting SW");
             displacement.setX(-displacement.getX());
             displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by SWPing:" + displacement.getX() + "_" + displacement.getY());
         }
         else if(distances[3] == minDistance) { //W
             ///position.x = pinger.getWestLimit();
             System.out.println("west:" + position.x);
             displacement.setX(-displacement.getX());
+            System.out.println("Displacement changed by WPing:" + displacement.getX() + "_" + displacement.getY());
         }
         else if(distances[3] == minDistance && distances[0] == minDistance) {
             //position.x = pinger.;
             //position.y =
+            System.out.println("Hitting NW");
             displacement.setX(-displacement.getX());
             displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by NWPing:" + displacement.getX() + "_" + displacement.getY());
         }
         returnToPreviousPosition();
     }
 
-    private void possiblyBounceFromWall() {
+    private boolean possiblyBounceFromWall() {
+        boolean bounced = false;
         if(position.x < 0) {
             //position.x = 0;
             //displacement.setX(-displacement.getX());
+            bounced = true;
             if(position.x == -(2 * radius)) { isBouncing = false; }
         }
         if(position.x > GamePanel.WIDTH - (2 * radius) - 1) {
+            bounced = true;
             position.x = GamePanel.WIDTH - (2 * radius) - 1;
             displacement.setX(-displacement.getX());
+            System.out.println("Displacement changed by WWall:" + displacement.getX() + "_" + displacement.getY());
         }
         if(position.y < 0) {
+            bounced = true;
             position.y = 0;
             displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by NWall:" + displacement.getX() + "_" + displacement.getY());
         }
         if(position.y > GamePanel.HEIGHT - (2 * radius) - 1) {
+            bounced = true;
             position.y = GamePanel.HEIGHT - (2 * radius) - 1;
             displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by SWall:" + displacement.getX() + "_" + displacement.getY());
         }
+        return bounced;
     }
 
     public void drawBall(Graphics2D g) {
@@ -173,7 +197,10 @@ public class Ball {
     }
 
     private void returnToPreviousPosition() {
-        position = new Point(prevPosition);
+        position = new Point(prevPosition.x,prevPosition.y);
+        System.out.println("-In returnToPreviousPosition:");
+        System.out.println("-PrevPos:" + prevPosition.x + "_" + prevPosition.y + "New pos:" + position.x + "_" + position.y);
+        System.out.println("-Displacement(x,y):" + displacement.getX() + "_" + displacement.getY());
     }
 
     private Point[] getCorners() {

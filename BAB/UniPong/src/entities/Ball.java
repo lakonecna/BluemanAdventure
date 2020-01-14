@@ -62,7 +62,7 @@ public class Ball {
         }
     }
 
-    private void bounceFromPinger(Pinger pinger) {
+    private void bounceFromPingerOld(Pinger pinger) {
         // possible method: find the distance of ball center from
         // the ends of each wall, find average for each wall
         // smallest is the one that must be touching the wall
@@ -70,6 +70,7 @@ public class Ball {
         // if side, invert the x component of the vector
         Point ballCenter = new Point(position.x + radius,position.y + radius);
         Point[] corners = pinger.getCorners();
+        double pingerHtoWRatio = pinger.getScale();
         double[] distances = new double[4];
         double d1;
         double d2;
@@ -155,6 +156,29 @@ public class Ball {
             System.out.println("Displacement changed by NWPing:" + displacement.getX() + "_" + displacement.getY());
         }
         returnToPreviousPosition();
+    }
+
+    private void bounceFromPinger(Pinger pinger) {
+        // find the corners of 8 virtual rectangles adjacent with pinger,
+        // N,NE,E,SE,S,SW,W,NW
+        // the width side of each virtual rectangle should be the diameter of the ball
+        Point[] ballCorners = getCorners();
+
+        // North:
+        Point[] nCorners = new Point[4];
+        nCorners[0] = new Point(pinger.getPosition().x,pinger.getPosition().y - 2 * radius);
+        nCorners[1] = new Point(pinger.getPosition().x, pinger.getPosition().y);
+        nCorners[2] = new Point(pinger.getPosition().x + pinger.getWidth(), pinger.getPosition().y - radius);
+        nCorners[3] = new Point(pinger.getPosition().x + pinger.getWidth(), pinger.getPosition().y - 1);
+        Overlap2DDecider northOverlap = new Overlap2DDecider(ballCorners,nCorners);
+
+        // NE
+        Point[] neCorners = new Point[4];
+        nCorners[0] = new Point(pinger.getPosition().x,pinger.getPosition().y - radius);
+        nCorners[1] = new Point(pinger.getPosition().x, pinger.getPosition().y - 1);
+        nCorners[2] = new Point(pinger.getPosition().x + pinger.getWidth(), pinger.getPosition().y - radius);
+        nCorners[3] = new Point(pinger.getPosition().x + pinger.getWidth(), pinger.getPosition().y - 1);
+        Overlap2DDecider northEastOverlap = new Overlap2DDecider(ballCorners,nCorners);
     }
 
     private boolean possiblyBounceFromWall() {

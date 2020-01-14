@@ -227,6 +227,70 @@ public class Ball {
         nCorners[2] = new Point(pinger.getPosition().x,pinger.getPosition().y - 2 * radius);
         nCorners[3] = new Point(pinger.getPosition().x,pinger.getPosition().y);
         Overlap2DDecider northWestOverlap = new Overlap2DDecider(ballCorners,nwCorners);
+
+        // deciding the area of impact by finding rectangle
+        // sharing the largest overlap area with the ball
+        double[] overlapAreas;
+        double nOverlapArea = northOverlap.getOverlapArea();
+        double neOverlapArea = northEastOverlap.getOverlapArea();
+        double eOverlapArea = eastOverlap.getOverlapArea();
+        double seOverlapArea = southEastOverlap.getOverlapArea();
+        double sOverlapArea = southOverlap.getOverlapArea();
+        double swOverlapArea = southWestOverlap.getOverlapArea();
+        double wOverlapArea = westOverlap.getOverlapArea();
+        double nwOverlapArea = northWestOverlap.getOverlapArea();
+        overlapAreas = new double[]{nOverlapArea,neOverlapArea,
+                                    eOverlapArea,seOverlapArea,
+                                    sOverlapArea,swOverlapArea,
+                                    wOverlapArea,nwOverlapArea};
+        double largestOverlapArea = getMaxElement(overlapAreas);
+
+        // acting accordingly, based on which side has largest impact with ball
+        if(nOverlapArea == largestOverlapArea) {
+            System.out.println("Hitting N:" + position.y);
+            displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by NPing:" + displacement.getX() + "_" + displacement.getY());
+        }
+        else if(neOverlapArea == largestOverlapArea) {
+            System.out.println("Hitting NE");
+            displacement.setX(-displacement.getX());
+            displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by NEPing:" + displacement.getX() + "_" + displacement.getY());
+        }
+        else if(eOverlapArea == largestOverlapArea) {
+            System.out.println("Hitting E:" + position.x);
+            displacement.setX(-displacement.getX());
+            System.out.println("Displacement changed by EPing:" + displacement.getX() + "_" + displacement.getY());
+        }
+        else if(seOverlapArea == largestOverlapArea) {
+            System.out.println("Hitting SE");
+            displacement.setX(-displacement.getX());
+            displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by SEPing:" + displacement.getX() + "_" + displacement.getY());
+        }
+        else if(sOverlapArea == largestOverlapArea) {
+            System.out.println("Hitting S:" + position.y);
+            displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by SPing:" + displacement.getX() + "_" + displacement.getY());
+        }
+        else if(swOverlapArea == largestOverlapArea) {
+            System.out.println("Hitting SW");
+            displacement.setX(-displacement.getX());
+            displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by SWPing:" + displacement.getX() + "_" + displacement.getY());
+        }
+        else if(wOverlapArea == largestOverlapArea) {
+            System.out.println("Hitting W:" + position.x);
+            displacement.setX(-displacement.getX());
+            System.out.println("Displacement changed by WPing:" + displacement.getX() + "_" + displacement.getY());
+        }
+        else if(nwOverlapArea == largestOverlapArea) {
+            System.out.println("Hitting NW");
+            displacement.setX(-displacement.getX());
+            displacement.setY(-displacement.getY());
+            System.out.println("Displacement changed by NWPing:" + displacement.getX() + "_" + displacement.getY());
+        }
+        returnToPreviousPosition();
     }
 
     private boolean possiblyBounceFromWall() {
@@ -298,5 +362,16 @@ public class Ball {
             }
         }
         return curMin;
+    }
+
+    private double getMaxElement(double[] array) {
+        double curMax = array[0];
+        for (double d :
+                array) {
+            if (d < curMax) {
+                curMax = d;
+            }
+        }
+        return curMax;
     }
 }

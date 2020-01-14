@@ -11,6 +11,7 @@ public class Pinger {
     private Point position;
     private int width;
     private int height;
+    private double scale;
     private BufferedImage pinger;
     public static final int fromWall = 20;
 
@@ -26,6 +27,7 @@ public class Pinger {
     public Point getPosition() { return position; }
     public int getWidth() { return width; }
     public int getHeight() { return height; }
+    public double getScale() { return scale; }
 
     private void init() {
         try {
@@ -37,6 +39,7 @@ public class Pinger {
         if (pinger != null) {
             width = pinger.getWidth();
             height = pinger.getHeight();
+            scale = (double) height / width;
         }
     }
 

@@ -174,58 +174,58 @@ public class Ball {
 
         // NE
         Point[] neCorners = new Point[4];
-        nCorners[0] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y - 2 * radius);
-        nCorners[1] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y);
-        nCorners[2] = new Point(pinger.getPosition().x + pinger.getWidth() + 2 * radius,pinger.getPosition().y - 2 * radius);
-        nCorners[3] = new Point(pinger.getPosition().x + pinger.getWidth() + 2 * radius, pinger.getPosition().y);
+        neCorners[0] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y - 2 * radius);
+        neCorners[1] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y);
+        neCorners[2] = new Point(pinger.getPosition().x + pinger.getWidth() + 2 * radius,pinger.getPosition().y - 2 * radius);
+        neCorners[3] = new Point(pinger.getPosition().x + pinger.getWidth() + 2 * radius, pinger.getPosition().y);
         Overlap2DDecider northEastOverlap = new Overlap2DDecider(ballCorners,neCorners);
 
         // E
         Point[] eCorners = new Point[4];
-        nCorners[0] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y);
-        nCorners[1] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y + pinger.getHeight());
-        nCorners[2] = new Point(pinger.getPosition().x + pinger.getWidth() + 2 * radius,pinger.getPosition().y);
-        nCorners[3] = new Point(pinger.getPosition().x + pinger.getWidth() + 2 * radius, pinger.getPosition().y + pinger.getHeight());
+        eCorners[0] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y);
+        eCorners[1] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y + pinger.getHeight());
+        eCorners[2] = new Point(pinger.getPosition().x + pinger.getWidth() + 2 * radius,pinger.getPosition().y);
+        eCorners[3] = new Point(pinger.getPosition().x + pinger.getWidth() + 2 * radius, pinger.getPosition().y + pinger.getHeight());
         Overlap2DDecider eastOverlap = new Overlap2DDecider(ballCorners,eCorners);
 
         // SE
         Point[] seCorners = new Point[4];
-        nCorners[0] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y + pinger.getHeight());
-        nCorners[1] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y + pinger.getHeight() + 2 * radius);
-        nCorners[2] = new Point(pinger.getPosition().x + pinger.getWidth() + 2 * radius,pinger.getPosition().y + pinger.getHeight());
-        nCorners[3] = new Point(pinger.getPosition().x + pinger.getWidth() + 2 * radius, pinger.getPosition().y + pinger.getHeight() + 2 * radius);
+        seCorners[0] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y + pinger.getHeight());
+        seCorners[1] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y + pinger.getHeight() + 2 * radius);
+        seCorners[2] = new Point(pinger.getPosition().x + pinger.getWidth() + 2 * radius,pinger.getPosition().y + pinger.getHeight());
+        seCorners[3] = new Point(pinger.getPosition().x + pinger.getWidth() + 2 * radius, pinger.getPosition().y + pinger.getHeight() + 2 * radius);
         Overlap2DDecider southEastOverlap = new Overlap2DDecider(ballCorners,seCorners);
 
         // S
         Point[] sCorners = new Point[4];
-        nCorners[0] = new Point(pinger.getPosition().x,pinger.getPosition().y + pinger.getHeight());
-        nCorners[1] = new Point(pinger.getPosition().x,pinger.getPosition().y + pinger.getHeight() + 2 * radius);
-        nCorners[2] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y + pinger.getHeight());
-        nCorners[3] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y + pinger.getHeight() + 2 * radius);
+        sCorners[0] = new Point(pinger.getPosition().x,pinger.getPosition().y + pinger.getHeight());
+        sCorners[1] = new Point(pinger.getPosition().x,pinger.getPosition().y + pinger.getHeight() + 2 * radius);
+        sCorners[2] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y + pinger.getHeight());
+        sCorners[3] = new Point(pinger.getPosition().x + pinger.getWidth(),pinger.getPosition().y + pinger.getHeight() + 2 * radius);
         Overlap2DDecider southOverlap = new Overlap2DDecider(ballCorners,sCorners);
 
         // SW
         Point[] swCorners = new Point[4];
-        nCorners[0] = new Point(pinger.getPosition().x - 2 * radius,pinger.getPosition().y + pinger.getHeight());
-        nCorners[1] = new Point(pinger.getPosition().x,pinger.getPosition().y + pinger.getHeight());
-        nCorners[2] = new Point(pinger.getPosition().x - 2 * radius,pinger.getPosition().y + pinger.getHeight() + 2 * radius);
-        nCorners[3] = new Point(pinger.getPosition().x,pinger.getPosition().y + pinger.getHeight() + 2 * radius);
+        swCorners[0] = new Point(pinger.getPosition().x - 2 * radius,pinger.getPosition().y + pinger.getHeight());
+        swCorners[1] = new Point(pinger.getPosition().x,pinger.getPosition().y + pinger.getHeight());
+        swCorners[2] = new Point(pinger.getPosition().x - 2 * radius,pinger.getPosition().y + pinger.getHeight() + 2 * radius);
+        swCorners[3] = new Point(pinger.getPosition().x,pinger.getPosition().y + pinger.getHeight() + 2 * radius);
         Overlap2DDecider southWestOverlap = new Overlap2DDecider(ballCorners,swCorners);
 
         // W
         Point[] wCorners = new Point[4];
-        nCorners[0] = new Point(pinger.getPosition().x - 2 * radius,pinger.getPosition().y);
-        nCorners[1] = new Point(pinger.getPosition().x - 2 * radius,pinger.getPosition().y + pinger.getHeight());
-        nCorners[2] = new Point(pinger.getPosition().x,pinger.getPosition().y);
-        nCorners[3] = new Point(pinger.getPosition().x,pinger.getPosition().y + pinger.getHeight());
+        wCorners[0] = new Point(pinger.getPosition().x - 2 * radius,pinger.getPosition().y);
+        wCorners[1] = new Point(pinger.getPosition().x - 2 * radius,pinger.getPosition().y + pinger.getHeight());
+        wCorners[2] = new Point(pinger.getPosition().x,pinger.getPosition().y);
+        wCorners[3] = new Point(pinger.getPosition().x,pinger.getPosition().y + pinger.getHeight());
         Overlap2DDecider westOverlap = new Overlap2DDecider(ballCorners,wCorners);
 
         // NW
         Point[] nwCorners = new Point[4];
-        nCorners[0] = new Point(pinger.getPosition().x - 2 * radius,pinger.getPosition().y - 2 * radius);
-        nCorners[1] = new Point(pinger.getPosition().x - 2 * radius,pinger.getPosition().y);
-        nCorners[2] = new Point(pinger.getPosition().x,pinger.getPosition().y - 2 * radius);
-        nCorners[3] = new Point(pinger.getPosition().x,pinger.getPosition().y);
+        nwCorners[0] = new Point(pinger.getPosition().x - 2 * radius,pinger.getPosition().y - 2 * radius);
+        nwCorners[1] = new Point(pinger.getPosition().x - 2 * radius,pinger.getPosition().y);
+        nwCorners[2] = new Point(pinger.getPosition().x,pinger.getPosition().y - 2 * radius);
+        nwCorners[3] = new Point(pinger.getPosition().x,pinger.getPosition().y);
         Overlap2DDecider northWestOverlap = new Overlap2DDecider(ballCorners,nwCorners);
 
         // deciding the area of impact by finding rectangle

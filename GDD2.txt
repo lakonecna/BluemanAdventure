@@ -32,4 +32,7 @@ Game Design Document
 				GameState		(Win -> WinState, Progress -> NextLevelState, Die -> GameOverState, Q -> QState)
 				WinState		(Enter -> MenuState)
 				NextLevelState	(Yes -> SaveGameState
-				
+		Look and Feel  
+			What is the basic look and feel of the game? What is the visual style?
+			Shape - basic, straight, square, elegant, simple and modern.
+			Colours - fitting based on colour theory, not too neon.

@@ -56,12 +56,16 @@ public class Ball {
             System.out.println("Displacement(x,y):" + displacement.getX() + "_" + displacement.getY());
             bounceFromPinger(pinger);
         }
+        else {
+            System.out.println("_pingerHitsBall FALSE");
+        }
         if(gif != null) {
             gif.setPosition(position);
             gif.nextFrame();
         }
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////TODO Delete this
     private void bounceFromPingerOld(Pinger pinger) {
         // possible method: find the distance of ball center from
         // the ends of each wall, find average for each wall
@@ -157,6 +161,7 @@ public class Ball {
         }
         returnToPreviousPosition();
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private void bounceFromPinger(Pinger pinger) {
         // find the corners of 8 virtual rectangles adjacent with pinger,
@@ -232,13 +237,21 @@ public class Ball {
         // sharing the largest overlap area with the ball
         double[] overlapAreas;
         double nOverlapArea = northOverlap.getOverlapArea();
+        System.out.println("nOA:" + nOverlapArea);
         double neOverlapArea = northEastOverlap.getOverlapArea();
+        System.out.println("neOA:" + neOverlapArea);
         double eOverlapArea = eastOverlap.getOverlapArea();
+        System.out.println("eOA:" + eOverlapArea);
         double seOverlapArea = southEastOverlap.getOverlapArea();
+        System.out.println("seOA:" + seOverlapArea);
         double sOverlapArea = southOverlap.getOverlapArea();
+        System.out.println("sOA:" + sOverlapArea);
         double swOverlapArea = southWestOverlap.getOverlapArea();
+        System.out.println("swOA:" + swOverlapArea);
         double wOverlapArea = westOverlap.getOverlapArea();
+        System.out.println("wOA:" + wOverlapArea);
         double nwOverlapArea = northWestOverlap.getOverlapArea();
+        System.out.println("nwOA:" + nwOverlapArea);
         overlapAreas = new double[]{nOverlapArea,neOverlapArea,
                                     eOverlapArea,seOverlapArea,
                                     sOverlapArea,swOverlapArea,
@@ -333,7 +346,9 @@ public class Ball {
     }
 
     private void returnToPreviousPosition() {
+        Point temp = new Point(position.x,position.y);
         position = new Point(prevPosition.x,prevPosition.y);
+        prevPosition = new Point(temp.x,temp.y);
         System.out.println("-In returnToPreviousPosition:");
         System.out.println("-PrevPos:" + prevPosition.x + "_" + prevPosition.y + "New pos:" + position.x + "_" + position.y);
         System.out.println("-Displacement(x,y):" + displacement.getX() + "_" + displacement.getY());

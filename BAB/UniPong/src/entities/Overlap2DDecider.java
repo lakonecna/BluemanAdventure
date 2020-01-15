@@ -68,10 +68,15 @@ public class Overlap2DDecider {
             int r2x2 = pointsShape2[2].x;
             int r2y1 = pointsShape2[0].y;
             int r2y2 = pointsShape2[1].y;
-            double xAxisOverlap = Math.max(0,Math.min(r1x1,r2x1) - Math.max(r1x2,r2x2));
-            double yAxisOverlap = Math.max(0, Math.min(r1y1,r2y1) - Math.max(r1y2,r2y2));
+            System.out.println("Entered setOverlapArea:");
+            System.out.println("Rect1: " + r1x1 + " " + r1x2 + " " + r1y1 + " " + r1y2);
+            System.out.println("Rect2: " + r2x1 + " " + r2x2 + " " + r2y1 + " " + r2y2);
+            double xAxisOverlap = Math.max(0,Math.max(r1x2,r2x2) - Math.min(r1x1,r2x1));
+            double yAxisOverlap = Math.max(0,Math.max(r1y2,r2y2) - Math.min(r1y1,r2y1));
+            System.out.println("x and y overlaps are: " + xAxisOverlap + " and " + yAxisOverlap);
             overlapArea = xAxisOverlap * yAxisOverlap;
-            System.out.println("oA is:" + overlapArea);
+            System.out.println("Thus the overlap is:" + overlapArea);
+            System.out.println("About to exit setOverlapArea.");
         }
         else if(areRectangleAndSphere) {
             overlapArea = 0;

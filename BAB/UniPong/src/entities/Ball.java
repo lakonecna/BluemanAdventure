@@ -260,13 +260,20 @@ public class Ball {
         System.out.println("wOA:" + wOverlapArea);
         double nwOverlapArea = northWestOverlap.getOverlapArea();
         System.out.println("nwOA:" + nwOverlapArea);
-        overlapAreas = new double[]{nOverlapArea,neOverlapArea,
-                                    eOverlapArea,seOverlapArea,
-                                    sOverlapArea,swOverlapArea,
-                                    wOverlapArea,nwOverlapArea};
+        overlapAreas = new double[8];
+        overlapAreas[0] = nOverlapArea;
+        overlapAreas[1] = neOverlapArea;
+        overlapAreas[2] = eOverlapArea;
+        overlapAreas[3] = seOverlapArea;
+        overlapAreas[4] = sOverlapArea;
+        overlapAreas[5] = swOverlapArea;
+        overlapAreas[6] = wOverlapArea;
+        overlapAreas[7] = nwOverlapArea;
+        overlapAreas.toString();
         double largestOverlapArea = getMaxElement(overlapAreas);
 
         // acting accordingly, based on which side has largest impact with ball
+        System.out.println("largestOverlapArea = " + largestOverlapArea);
         if(nOverlapArea == largestOverlapArea) {
             System.out.println("Hitting N:" + position.y);
             displacement.setY(-displacement.getY());

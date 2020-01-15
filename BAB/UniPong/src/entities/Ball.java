@@ -269,7 +269,9 @@ public class Ball {
         overlapAreas[5] = swOverlapArea;
         overlapAreas[6] = wOverlapArea;
         overlapAreas[7] = nwOverlapArea;
-        overlapAreas.toString();
+        for (double i:overlapAreas) {
+            System.out.println(i);
+        }
         double largestOverlapArea = getMaxElement(overlapAreas);
 
         // acting accordingly, based on which side has largest impact with ball
@@ -398,7 +400,7 @@ public class Ball {
         double curMax = array[0];
         for (double d :
                 array) {
-            if (d < curMax) {
+            if (d > curMax) {
                 curMax = d;
             }
         }

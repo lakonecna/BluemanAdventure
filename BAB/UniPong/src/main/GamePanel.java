@@ -36,13 +36,13 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
     public void restart() {
-        thread.interrupt();
-        thread = null;
+        /*thread = null;
         if(thread == null) {
             thread = new Thread(this);
             addKeyListener(this);
             thread.start();
-        }
+        } */
+        ball.restart();
         running = true;
     }
 
@@ -88,6 +88,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             }
             repaint();
         }
+        thread.interrupt();
     }
 
     private void update() {

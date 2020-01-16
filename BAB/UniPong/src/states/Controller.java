@@ -10,6 +10,7 @@ public class Controller {
     public Controller() {
         states = new State[10];
         states[0] = new MenuState();
+        states[1] = new GameState();
         currentState = states[0];
     }
 

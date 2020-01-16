@@ -2,6 +2,7 @@ package entities;
 
 import main.GamePanel;
 import math.Vector2D;
+import states.GameState;
 
 import java.awt.*;
 
@@ -36,6 +37,13 @@ public class Ball {
     public void setGif(AnimatedGIF gif) { this.gif = gif; }
     public void setPrevPosition(Point prevPosition) { this.prevPosition = prevPosition; }
     private void isBouncing(boolean isBouncing) { this.isBouncing = isBouncing; }
+
+    public void restart() {
+        position.x = GamePanel.WIDTH / 2;
+        position.y = GamePanel.HEIGHT / 2;
+        displacement = new Vector2D(1,2);
+        isBouncing = true;
+    }
 
     public void init() {
         gif = new AnimatedGIF(position);

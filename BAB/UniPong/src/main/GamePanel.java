@@ -22,7 +22,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     private Pinger pinger;
     private BufferedImage background;
     private Thread thread;
-    private int fps = 60;
+    private int fps = 160;
     private long msPerFrame = 1000 / fps;
     private boolean running = false;
 
@@ -35,6 +35,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
     public void restart() {
+        thread.interrupt();
         thread = null;
         if(thread == null) {
             thread = new Thread(this);

@@ -329,13 +329,22 @@ public class Ball {
             //position.x = 0;
             //displacement.setX(-displacement.getX());
             bounced = true;
-            if(position.x == -(2 * radius)) { isBouncing = false; }
+            if(position.x < -(2 * radius)) {
+                isBouncing = false;
+                displacement.setY(0);
+                displacement.setX(0);
+            }
         }
         if(position.x > GamePanel.WIDTH - (2 * radius) - 1) {
+            //position.x = GamePanel.WIDTH - (2 * radius) - 1;
+            //displacement.setX(-displacement.getX());
+            //System.out.println("Displacement changed by WWall:" + displacement.getX() + "_" + displacement.getY());
             bounced = true;
-            position.x = GamePanel.WIDTH - (2 * radius) - 1;
-            displacement.setX(-displacement.getX());
-            System.out.println("Displacement changed by WWall:" + displacement.getX() + "_" + displacement.getY());
+            if(position.x > GamePanel.WIDTH) {
+                isBouncing = false;
+                displacement.setY(0);
+                displacement.setX(0);
+            }
         }
         if(position.y < 0) {
             bounced = true;

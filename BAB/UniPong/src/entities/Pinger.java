@@ -12,13 +12,19 @@ public class Pinger {
     private int width;
     private int height;
     private double scale;
+    private boolean leftWall;
     private BufferedImage pinger;
-    public static final int fromWall = 20;
 
-    public Pinger() {
+    public Pinger(int fromWall,boolean leftWall) {
         position = new Point();
         init();
-        position.x = fromWall ;
+        this.leftWall = leftWall;
+        if(leftWall) {
+            position.x = fromWall;
+        }
+       else {
+           position.x = GamePanel.WIDTH - fromWall - width - 1;
+        }
         position.y = GamePanel.HEIGHT / 2 - height / 2 - 1 ;
     }
     public void setPosition(Point position) { this.position = position; }

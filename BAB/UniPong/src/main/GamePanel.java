@@ -19,10 +19,11 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     public static final int WIDTH = 640;
     public static final int HEIGHT = 480;
     private Ball ball;
-    private Pinger pinger;
+    private Pinger leftPinger;
+    private Pinger rightPinger;
     private BufferedImage background;
     private Thread thread;
-    private int fps = 160;
+    private int fps = 80;
     private long msPerFrame = 1000 / fps;
     private boolean running = false;
 
@@ -62,8 +63,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         catch(Exception e) {
             e.printStackTrace();
         }
-        ball = new Ball(0,0,new Vector2D(2,3));
-        pinger = new Pinger();
+        ball = new Ball(WIDTH / 2,HEIGHT / 2,new Vector2D(2,3));
+        leftPinger = new Pinger(20,true);
+        rightPinger = new Pinger(20,false);
 
     }
 
@@ -89,7 +91,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
     private void update() {
-        ball.update(pinger);
+        ball.update(leftPinger);
+        ball.update(rightPinger);
         if(!ball.isBouncing()) { running = false; }
     }
 
@@ -101,8 +104,11 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         if(ball != null) {
             ball.drawBall((Graphics2D) g);
         }
-        if(pinger != null) {
-            pinger.drawPinger((Graphics2D) g);
+        if(leftPinger != null) {
+            leftPinger.drawPinger((Graphics2D) g);
+        }
+        if(rightPinger != null) {
+            rightPinger.drawPinger((Graphics2D) g);
         }
     }
 
@@ -112,10 +118,16 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 
     public void keyPressed(KeyEvent k) {
         if(k.getKeyCode() == KeyEvent.VK_UP) {
-            pinger.moveUp();
+            rightPinger.moveUp();
         }
         if(k.getKeyCode() == KeyEvent.VK_DOWN) {
-            pinger.moveDown();
+            rightPinger.moveDown();
+        }
+        if(k.getKeyCode() == KeyEvent.VK_W) {
+            leftPinger.moveUp();
+        }
+        if(k.getKeyCode() == KeyEvent.VK_S) {
+            leftPinger.moveDown();
         }
         if(k.getKeyCode() == KeyEvent.VK_R) {
             restart();

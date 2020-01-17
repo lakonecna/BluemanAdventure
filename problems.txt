@@ -4,8 +4,8 @@
 		Should it? The point of the ball is to bounce off the walls and pingers
 		maybe thats a coupling which makes sense
 		Or should this functionality be delegated to another class which knows something about both pinger and ball?
-- ball updates twice with every run of the game loop
-- there is no game structure implemented yet
+- ball updates twice with every run of the game loop -STILL HAPPENING
+- there is no game structure implemented yet -WORKING ON
 - the OverlapDecider2D only works for 2 rectangles, needs to be updated
-- mabye OD2D should operate by deciding overlap based on area immediately, instead of doing the current calculation
+- mabye OD2D should operate by deciding overlap based on area immediately, instead of doing the current calculation ?????
 - the division of the space around the pinger into rectangles isn't 100% precise, should it be updated?

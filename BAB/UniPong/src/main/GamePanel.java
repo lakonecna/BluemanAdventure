@@ -4,6 +4,7 @@ import entities.Ball;
 import entities.Overlap2DDecider;
 import entities.Pinger;
 import math.Vector2D;
+import states.Controller;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -18,10 +19,11 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     public static final long serialVersionUID = 1L;
     public static final int WIDTH = 640;
     public static final int HEIGHT = 480;
-    private Ball ball;
-    private Pinger leftPinger;
-    private Pinger rightPinger;
-    private BufferedImage background;
+    private Controller control;
+    //private Ball ball;
+    //private Pinger leftPinger;
+    //private Pinger rightPinger;
+    //private BufferedImage background;
     private Thread thread;
     private int fps = 80;
     private long msPerFrame = 1000 / fps;
@@ -41,10 +43,11 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             thread = new Thread(this);
             addKeyListener(this);
             thread.start();
-        } */
+        }
         //running = true;
         ball.restart();
         //run();
+         */
     }
 
     public void addNotify() {
@@ -58,6 +61,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
     private void init() {
+        /*
         try {
             background = ImageIO.read(getClass().getResourceAsStream("/background.jpg"));
         }
@@ -67,7 +71,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         ball = new Ball(WIDTH / 2,HEIGHT / 2,new Vector2D(2,3));
         leftPinger = new Pinger(20,true);
         rightPinger = new Pinger(20,false);
-
+        */
+        control = new Controller();
+        control.init();
     }
 
     public void run() {
@@ -89,17 +95,20 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             }
             repaint();
         }
-        thread.interrupt();
     }
 
     private void update() {
+        /*
         ball.update(leftPinger);
         ball.update(rightPinger);
         //if(!ball.isBouncing()) { running = false; }
+         */
+        control.update();
     }
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        /*
         if(background != null) {
             g.drawImage(background,0,0,null);
         }
@@ -111,7 +120,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         }
         if(rightPinger != null) {
             rightPinger.drawPinger((Graphics2D) g);
-        }
+        }*/
+        control.paint((Graphics2D) g);
     }
 
     public void keyTyped(KeyEvent k) {
@@ -119,6 +129,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
     public void keyPressed(KeyEvent k) {
+        /*
         if(k.getKeyCode() == KeyEvent.VK_UP) {
             rightPinger.moveUp();
         }
@@ -133,11 +144,13 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         }
         if(k.getKeyCode() == KeyEvent.VK_R) {
             restart();
-        }
+        }*/
+        control.keyPressed(k.getKeyCode());
     }
 
     public void keyReleased(KeyEvent k) {
         // will this be needed?
+        control.keyReleased(k.getKeyCode());
     }
 
 }

@@ -39,14 +39,25 @@ public class GameState extends State {
             rightPinger = new Pinger(20,false);
     }
 
-    @Override
+    // TODO ball shouldn't need to update twice
     public void update() {
-
+        ball.update(leftPinger);
+        ball.update(rightPinger);
     }
 
-    @Override
     public void paint(Graphics2D g) {
-
+        if(background != null) {
+            g.drawImage(background,0,0,null);
+        }
+        if(ball != null) {
+            ball.drawBall((Graphics2D) g);
+        }
+        if(leftPinger != null) {
+            leftPinger.drawPinger((Graphics2D) g);
+        }
+        if(rightPinger != null) {
+            rightPinger.drawPinger((Graphics2D) g);
+        }
     }
 
     public void keyPressed(int k) {
@@ -72,6 +83,6 @@ public class GameState extends State {
     }
 
     private void restart() {
-        // How do we get the ball to reappear without speeding up?
+        ball.restart();
     }
 }

@@ -39,9 +39,8 @@ public class Ball {
     private void isBouncing(boolean isBouncing) { this.isBouncing = isBouncing; }
 
     public void restart() {
-        position.x = GamePanel.WIDTH / 2;
-        position.y = GamePanel.HEIGHT / 2;
-        displacement = new Vector2D(1,2);
+        position.x = GamePanel.WIDTH / 2 - radius - 1;
+        position.y = GamePanel.HEIGHT / 2 - radius - 1;
         isBouncing = true;
     }
 
@@ -54,18 +53,23 @@ public class Ball {
 
     public void update(Pinger pinger) {
         prevPosition = new Point(position.x,position.y);
-        position.x += displacement.getX();
-        position.y += displacement.getY();
-        System.out.println("PrevPos:" + prevPosition.x + "_" + prevPosition.y + "New pos:" + position.x + "_" + position.y);
-        possiblyBounceFromWall();
-        Overlap2DDecider decider = new Overlap2DDecider(getCorners(), pinger.getCorners());
-        if(pingerHitsBall(pinger,decider)) {
-            System.out.println("pingerHitsBall TRUE");
-            System.out.println("Displacement(x,y):" + displacement.getX() + "_" + displacement.getY());
-            bounceFromPinger(pinger);
+        if(!isBouncing) {
+            doNotMove();
         }
         else {
-            System.out.println("_pingerHitsBall FALSE");
+            position.x += displacement.getX();
+            position.y += displacement.getY();
+            System.out.println("PrevPos:" + prevPosition.x + "_" + prevPosition.y + "New pos:" + position.x + "_" + position.y);
+            possiblyBounceFromWall();
+            Overlap2DDecider decider = new Overlap2DDecider(getCorners(), pinger.getCorners());
+            if(pingerHitsBall(pinger,decider)) {
+                System.out.println("pingerHitsBall TRUE");
+                System.out.println("Displacement(x,y):" + displacement.getX() + "_" + displacement.getY());
+                bounceFromPinger(pinger);
+            }
+            else {
+                System.out.println("_pingerHitsBall FALSE");
+            }
         }
         if(gif != null) {
             gif.setPosition(position);
@@ -339,8 +343,6 @@ public class Ball {
             bounced = true;
             if(position.x < -(2 * radius)) {
                 isBouncing = false;
-                displacement.setY(0);
-                displacement.setX(0);
             }
         }
         if(position.x > GamePanel.WIDTH - (2 * radius) - 1) {
@@ -350,8 +352,6 @@ public class Ball {
             bounced = true;
             if(position.x > GamePanel.WIDTH) {
                 isBouncing = false;
-                displacement.setY(0);
-                displacement.setX(0);
             }
         }
         if(position.y < 0) {
@@ -422,5 +422,10 @@ public class Ball {
             }
         }
         return curMax;
+    }
+
+    private void doNotMove() {
+        position.x = position.x;
+        position.y = position.y;
     }
 }

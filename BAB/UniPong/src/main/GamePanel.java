@@ -42,8 +42,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             addKeyListener(this);
             thread.start();
         } */
+        //running = true;
         ball.restart();
-        running = true;
+        //run();
     }
 
     public void addNotify() {
@@ -94,7 +95,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     private void update() {
         ball.update(leftPinger);
         ball.update(rightPinger);
-        if(!ball.isBouncing()) { running = false; }
+        //if(!ball.isBouncing()) { running = false; }
     }
 
     protected void paintComponent(Graphics g) {

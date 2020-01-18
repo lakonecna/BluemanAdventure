@@ -19,7 +19,8 @@ public class MenuState extends State {
     }
 
     public void init() {
-        background.readGIF("/menubg.gif");
+        background = new AnimatedGIF(new Point(0,0));
+        background.readGIF("menubg.gif");
     }
 
     public void update() {
@@ -31,7 +32,7 @@ public class MenuState extends State {
     }
 
     public void paint(Graphics2D g) {
-        Font choicesFont = new Font(Font.MONOSPACED,Font.PLAIN,10);
+        /*Font choicesFont = new Font(Font.MONOSPACED,Font.PLAIN,10);
         Font choiceFont = new Font(Font.MONOSPACED,Font.BOLD,11);
         FontMetrics choicesMetrics = new FontMetrics()
         Color choicesColor = new Color(50,50,50);
@@ -39,6 +40,7 @@ public class MenuState extends State {
         for (String i : options) {
             g.drawString(i,);
         }
+         */
     }
 
     public void keyPressed(int keyCode) {

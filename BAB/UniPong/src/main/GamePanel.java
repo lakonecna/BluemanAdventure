@@ -75,6 +75,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         control = new Controller();
         control.init();
     }
+    // TODO the problem may be that only the first game state gets to init()
 
     public void run() {
         init();
@@ -121,7 +122,10 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         if(rightPinger != null) {
             rightPinger.drawPinger((Graphics2D) g);
         }*/
-        control.paint((Graphics2D) g);
+        if(control != null) {
+            //System.out.println("Hello there!");
+            control.paint((Graphics2D) g);
+        }
     }
 
     public void keyTyped(KeyEvent k) {

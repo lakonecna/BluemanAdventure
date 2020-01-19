@@ -43,7 +43,7 @@ public class GamePanel extends JPanel implements Runnable{
         long wait = 100;
         while(running) {
             start = System.nanoTime();
-
+            gif.nextFrame();
             sinceStart = System.nanoTime() - start;
             wait = timePerFrame - sinceStart / 1000000;
             if(wait < 0) wait = 5;
@@ -53,7 +53,7 @@ public class GamePanel extends JPanel implements Runnable{
             catch (Exception e) {
                 e.printStackTrace();
             }
-            gif.nextFrame();
+            //gif.nextFrame();
             repaint();
         }
     }

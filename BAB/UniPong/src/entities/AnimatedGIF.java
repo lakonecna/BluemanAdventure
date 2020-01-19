@@ -51,7 +51,7 @@ public class AnimatedGIF {
     }
 
     public void draw(Graphics2D g) {
-        if(frames != null) {
+        if(isReady) {
             g.drawImage(frames[currentFrame],position.x,position.y,null);
         }
     }

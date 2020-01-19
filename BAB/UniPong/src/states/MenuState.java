@@ -20,16 +20,18 @@ public class MenuState extends State {
 
     public void init() {
         background = new AnimatedGIF(new Point(0,0));
-        background.readGIF("menubg.gif");
+        background.readGIF("/menubg.gif");
     }
 
     public void update() {
         background.nextFrame();
     }
 
+    /*
     public void update(Controller control) {
         background.nextFrame();
     }
+     */
 
     public void paint(Graphics2D g) {
         /*Font choicesFont = new Font(Font.MONOSPACED,Font.PLAIN,10);

@@ -1,9 +1,12 @@
 package states;
 
 import entities.AnimatedGIF;
+import main.GamePanel;
+import main.UniPong;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.geom.Rectangle2D;
 
 public class MenuState extends State {
     private Controller control;
@@ -35,18 +38,34 @@ public class MenuState extends State {
      */
 
     public void paint(Graphics2D g) {
-        /*Font choicesFont = new Font(Font.MONOSPACED,Font.PLAIN,10);
-        Font choiceFont = new Font(Font.MONOSPACED,Font.BOLD,11);
-        FontMetrics choicesMetrics = new FontMetrics()
-        Color choicesColor = new Color(50,50,50);
-        Color choiceColor = new Color(100,100,100);
-        for (String i : options) {
-            g.drawString(i,);
-        }
-         */
         if(background != null) {
             background.draw(g);
         }
+        Font titleFont = new Font(Font.MONOSPACED,Font.BOLD,60);
+        g.setFont(titleFont);
+        Color titleColor = new Color(100,200,100);
+        g.setColor(titleColor);
+        FontMetrics titleMetrics = g.getFontMetrics();
+        Rectangle2D titleArea = titleMetrics.getStringBounds("UniPong",g);
+        int titleWidth = (int) titleArea.getWidth();
+        g.drawString("UniPong",GamePanel.WIDTH / 2 - titleWidth / 2, 100);
+
+        Font choicesFont = new Font(Font.MONOSPACED,Font.PLAIN,40);
+        Font choiceFont = new Font(Font.MONOSPACED,Font.BOLD,50);
+        Color choicesColor = new Color(50,50,50);
+        Color choiceColor = new Color(100,100,200);
+        for(int i = 0; i < options.length; ++i) {
+            if(i == currentOptionIndex) {
+                g.setFont(choiceFont);
+                g.setColor(choiceColor);
+            }
+            else {
+                g.setFont(choicesFont);
+                g.setColor(choicesColor);
+            }
+            g.drawString(options[i],10,390 + i * 40);
+        }
+
     }
 
     public void keyPressed(int keyCode) {

@@ -14,6 +14,7 @@ public class GameState extends State {
     public static final long serialVersionUID = 1L;
     public static final int WIDTH = 640;
     public static final int HEIGHT = 480;
+    private Controller control;
     private Ball ball;
     private Pinger leftPinger;
     private Pinger rightPinger;
@@ -23,8 +24,9 @@ public class GameState extends State {
     //private long msPerFrame = 1000 / fps;
     //private boolean running = false;
 
-    public GameState() {
-
+    public GameState(Controller control) {
+        this.control = control;
+        init();
     }
 
     public void init() {

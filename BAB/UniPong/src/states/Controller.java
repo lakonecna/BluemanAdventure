@@ -10,8 +10,8 @@ public class Controller {
 
     public Controller() {
         states = new State[stateCount];
-        states[0] = new MenuState();
-        states[1] = new GameState();
+        states[0] = new MenuState(this);
+        states[1] = new GameState(this);
         currentStateIndex = 0;
         playing = true;
     }

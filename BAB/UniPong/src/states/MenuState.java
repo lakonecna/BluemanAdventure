@@ -11,10 +11,11 @@ public class MenuState extends State {
     private String[] options;
     private int currentOptionIndex;
 
-    public MenuState() {
+    public MenuState(Controller control) {
         super();
         options = new String[]{"Play","Look Cool","Exit"};
         currentOptionIndex = 0;
+        this.control = control;
         init();
     }
 

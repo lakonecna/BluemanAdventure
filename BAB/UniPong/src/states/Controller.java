@@ -25,7 +25,7 @@ public class Controller {
     }
 
     public void init() {
-        states[currentStateIndex].init();
+        //states[currentStateIndex].init(); //How often is this method called?
     }
 
     public void update() {

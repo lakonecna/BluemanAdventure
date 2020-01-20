@@ -43,6 +43,9 @@ public class MenuState extends State {
             g.drawString(i,);
         }
          */
+        if(background != null) {
+            background.draw(g);
+        }
     }
 
     public void keyPressed(int keyCode) {

@@ -5,13 +5,16 @@ import java.awt.*;
 public class Controller {
     private State[] states;
     private int currentStateIndex;
-    private final static int stateCount = 2;
+    private final static int stateCount = 5;
     private boolean playing;
 
     public Controller() {
         states = new State[stateCount];
-        states[0] = new MenuState(this);
-        states[1] = new GameState(this);
+        states[0] = new WelcomeState(this);
+        states[1] = new MenuState(this);
+        states[2] = new GameState(this);
+        states[3] = new GameOverState(this);
+        states[4] = new ExitState(this);
         currentStateIndex = 0;
         playing = true;
     }

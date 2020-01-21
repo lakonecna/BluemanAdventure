@@ -36,3 +36,86 @@ Game Design Document
 			What is the basic look and feel of the game? What is the visual style?
 			Shape - basic, straight, square, elegant, simple and modern.
 			Colours - fitting based on colour theory, not too neon.
+	Gameplay and Mechanics
+		Gameplay
+			Game Progression
+			-You start at the beginning point of each level.
+			-You need to manage to get to the end of the level.
+			-You might encounter a cut scene in between levels/ sub-levels/ sometimes.
+			-Puzzles may occur in between levels.
+				If they do: 
+					-you're trying to open a door,
+					-you're interrogating somebody,
+					-you're trying to persuade someone,
+					-you're trying to think of something,
+					-in a boss fight, if the player is
+						trying to outsmart the boss.
+			-The character can't die in a puzzle, unless the
+			puzzle is being used in an offensive/ defensive way
+			example, when fighting a boss.
+			-Along the way Blueman can collect better weapons,
+			armour, healing supplies as well as currency.
+			-No special items.
+			-You win the game by passing all levels, completing all
+			puzzlez, fighting all bosses and directly unlocking the whole
+			story.
+		Mission/ challenge Structure
+			Cut-scene, 
+			level:
+				sub-levels, 
+				cut-scenes, 
+				puzzles,
+			cut-scene,
+			boss-fight:
+				sub-level,
+				cut-scenes (with mean talk),
+				puzzles,
+			End of Level.
+		Puzzle structure:
+			cut-scene,
+			puzzle,
+			reward-cut-scene.
+		Objectives
+			– What are the objectives of the game?
+			Pass all levels to find and save the king.
+		Play Flow
+			How does the game flow for the game player.
+			The game passes quickly.
+			Should take 3-5 hours to complete.
+			High rate of attack.
+			High rate of collection.
+				These two should come closely after eachother.
+			Music matches scene ex : quiet when an important cut-scene happens
+									quick in the midst of a fight
+				It should be electronic, progressive and sometimes psychedelic.
+				Drums/ beat. Jungle. Sometimes trancier.
+			Interchange the rate of the game, slow to fast, to make things interesting.
+	Mechanics
+	– What are the rules to the game, both implicit and explicit. This is the model of the universe
+	that the game works under. Think of it as a simulation of a world, how do all the pieces interact? This
+	actually can be a very large section.
+		Physics - how does the physical universe work?
+			8 Environments:
+				- Elemental cortex
+					- underwater
+					- jungle
+					- road
+					- city
+					- rock
+				- Metallic Forest
+				- Shivering sea
+				- Mineral Mines
+				- Freeze city
+				- The fall
+				- Grinding gears
+				- Flaming Fortress
+		Movement in the game
+		Objects - how to pick them up/ move them
+		Actions
+			including whatever switches and buttons are used, 
+			interacting with objects, and what means
+			of communication are used
+		Combat – If there is combat or even conflict, how is this specifically modeled?
+		Economy – What is the economy of the game? How does it work?
+		Screen Flow -- A graphical description of how each screen is related to every other and a description
+			of the purpose of each screen

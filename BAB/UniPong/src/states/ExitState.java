@@ -9,7 +9,8 @@ public class ExitState extends State{
 
     private Controller control;
     private String text;
-    private int msLifetime;
+    private int sleepTime;
+    private int currentTime;
 
     public ExitState(Controller control) {
         this.control = control;
@@ -18,18 +19,23 @@ public class ExitState extends State{
 
     public void init() {
         text = "Have a good day! :)";
-        msLifetime = 10000;
+        sleepTime = 60;
+        currentTime = 0;
     }
 
     public void update() {
         // will this be needed?
         try {
-            Thread.sleep(msLifetime);
+            Thread.sleep(1);
+            ++currentTime;
+
         }
         catch(Exception e) {
             e.printStackTrace();
         }
-        control.exitRequestsExit();
+        if(currentTime == sleepTime) {
+            control.exitRequestsExit();
+        }
     }
 
     public void paint(Graphics2D g) {

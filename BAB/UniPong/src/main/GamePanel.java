@@ -16,6 +16,7 @@ import java.awt.image.BufferedImage;
 public class GamePanel extends JPanel implements Runnable, KeyListener {
     // methods : keyTyped, keyPressed, keyReleased
     // GamePanel, addNotify, Run, Init, Update, paintComponent
+    private JFrame myFrame;
     public static final long serialVersionUID = 1L;
     public static final int WIDTH = 640;
     public static final int HEIGHT = 480;
@@ -30,8 +31,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     private boolean running = false;
 
 
-    public GamePanel() {
+    public GamePanel(JFrame frame) {
         super();
+        myFrame = frame;
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
         setFocusable(true);
         requestFocus();
@@ -81,7 +83,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         long start;
         long sinceStart;
         long untilFramesUp;
-        while (running) {
+        while (control.isRunning()) {
             start = System.nanoTime();
             update();
             sinceStart = System.nanoTime() - start;
@@ -95,6 +97,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             }
             repaint();
         }
+        myFrame.setVisible(false);
+        myFrame.dispose();
     }
 
     private void update() {

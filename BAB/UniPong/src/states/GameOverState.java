@@ -9,7 +9,8 @@ import java.awt.geom.Rectangle2D;
 public class GameOverState extends State {
     private Controller control;
     private String text;
-    private int msLifetime;
+    private int sleepTime;
+    private int currentTime;
 
     public GameOverState(Controller control) {
         this.control = control;
@@ -17,19 +18,23 @@ public class GameOverState extends State {
     }
 
     public void init() {
-        text = "Game Over...";
-        msLifetime = 10000;
+        text = "Game Over";
+        sleepTime = 300;
+        currentTime = 0;
     }
 
     public void update() {
         try {
-            Thread.sleep(msLifetime);
+            Thread.sleep(1);
+            ++currentTime;
         }
         catch (Exception e) {
             e.printStackTrace();
-            Thread.interrupted();
+            //Thread.interrupted();
         }
-        control.gameOverRequestsMenu();
+        if(currentTime == sleepTime) {
+            control.gameOverRequestsMenu();
+        }
     }
 
     public void paint(Graphics2D g) {

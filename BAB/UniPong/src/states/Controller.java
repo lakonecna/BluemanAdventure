@@ -74,4 +74,12 @@ public class Controller {
         playing = false;
         //TODO exit game
     }
+
+    public void gameRequestsGameOver() {
+        nextState();
+    }
+
+    public boolean isRunning() {
+        return playing;
+    }
 }

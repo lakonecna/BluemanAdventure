@@ -43,8 +43,19 @@ public class GameState extends State {
 
     // TODO ball shouldn't need to update twice
     public void update() {
-        ball.update(leftPinger);
-        ball.update(rightPinger);
+        if(ball.canBallBounceLegally()) {
+            ball.update(leftPinger);
+            ball.update(rightPinger);
+        }
+        else {
+            try {
+                Thread.sleep(3000);
+            }
+            catch(Exception e) {
+                e.printStackTrace();
+            }
+            control.gameRequestsGameOver();
+        }
     }
 
     public void paint(Graphics2D g) {

@@ -16,6 +16,8 @@ public class Ball {
     private Vector2D displacement;
     private AnimatedGIF gif;
     private boolean isBouncing = false;
+    private int outCountRight;
+    private int outCountLeft;
 
     public Ball(int x,int y, Vector2D displacement) {
         position = new Point(x,y);
@@ -39,12 +41,17 @@ public class Ball {
     private void isBouncing(boolean isBouncing) { this.isBouncing = isBouncing; }
 
     public void restart() {
+        if(this.canBallBounceLegally()) {
+
+        }
         position.x = GamePanel.WIDTH / 2 - radius - 1;
         position.y = GamePanel.HEIGHT / 2 - radius - 1;
         isBouncing = true;
     }
 
     public void init() {
+        outCountLeft = 0;
+        outCountRight = 0;
         gif = new AnimatedGIF(position);
         gif.readGIF("/ball/ball.gif");
         radius = gif.getImageWIDTH() / 2;
@@ -343,6 +350,7 @@ public class Ball {
             bounced = true;
             if(position.x < -(2 * radius)) {
                 isBouncing = false;
+                ++outCountLeft;
             }
         }
         if(position.x > GamePanel.WIDTH - (2 * radius) - 1) {
@@ -352,6 +360,7 @@ public class Ball {
             bounced = true;
             if(position.x > GamePanel.WIDTH) {
                 isBouncing = false;
+                ++outCountRight;
             }
         }
         if(position.y < 0) {
@@ -427,5 +436,9 @@ public class Ball {
     private void doNotMove() {
         position.x = position.x;
         position.y = position.y;
+    }
+
+    public boolean canBallBounceLegally() {
+        return outCountRight < 3 && outCountLeft < 3;
     }
 }

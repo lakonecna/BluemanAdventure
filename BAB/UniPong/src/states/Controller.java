@@ -19,14 +19,6 @@ public class Controller {
         playing = true;
     }
 
-    private void setPlaying(boolean playing) {
-        this.playing = playing;
-    }
-
-    public boolean getPlaying() {
-        return playing;
-    }
-
     public void init() {
         //states[currentStateIndex].init(); //How often is this method called?
     }
@@ -72,7 +64,6 @@ public class Controller {
 
     public void exitRequestsExit() {
         playing = false;
-        //TODO exit game
     }
 
     public void gameRequestsGameOver() {

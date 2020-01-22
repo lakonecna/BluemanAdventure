@@ -11,7 +11,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowAdapter;
 import java.awt.image.BufferedImage;
+
+import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 
 public class GamePanel extends JPanel implements Runnable, KeyListener {
     // methods : keyTyped, keyPressed, keyReleased
@@ -97,8 +100,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             }
             repaint();
         }
-        myFrame.setVisible(false);
-        myFrame.dispose();
+        exit();
     }
 
     private void update() {
@@ -147,4 +149,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         control.keyReleased(k.getKeyCode());
     }
 
+    public void exit() {
+        myFrame.setVisible(false);
+        myFrame.dispose();
+        System.exit(0);
+    }
 }

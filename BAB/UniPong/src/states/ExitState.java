@@ -19,7 +19,7 @@ public class ExitState extends State{
 
     public void init() {
         text = "Have a good day! :)";
-        sleepTime = 60;
+        sleepTime = 45;
         currentTime = 0;
     }
 
@@ -28,7 +28,6 @@ public class ExitState extends State{
         try {
             Thread.sleep(1);
             ++currentTime;
-
         }
         catch(Exception e) {
             e.printStackTrace();

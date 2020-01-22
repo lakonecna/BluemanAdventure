@@ -20,12 +20,11 @@ public class WelcomeState extends State {
 
     public void init() {
         text = "WoosalexGames Presents...";
-        sleepTime = 60;
+        sleepTime = 45;
         currentTime = 0;
     }
 
     public void update() {
-        System.out.println("Here3");
         // will this be needed?
         try {
             Thread.sleep(1);
@@ -40,7 +39,6 @@ public class WelcomeState extends State {
     }
 
     public void paint(Graphics2D g) {
-        System.out.println("Here1");
         //Bg
         g.setColor(Color.BLACK);
         g.fillRect(0,0, GamePanel.WIDTH,GamePanel.HEIGHT);
@@ -53,7 +51,6 @@ public class WelcomeState extends State {
         int pointX = GamePanel.WIDTH / 2 - (int) welcomeRect.getWidth() / 2;
         int pointY = GamePanel.HEIGHT / 2 - (int) welcomeRect.getHeight() / 2;
         g.drawString(text, pointX,pointY);
-        System.out.println("Here2");
     }
 
     public void keyPressed(int keyCode) {

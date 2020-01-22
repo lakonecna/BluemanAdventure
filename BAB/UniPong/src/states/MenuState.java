@@ -13,12 +13,20 @@ public class MenuState extends State {
     private AnimatedGIF background;
     private String[] options;
     private int currentOptionIndex;
+    private int updateCounter;
+    private int gifFps;
+    private int gameFps;
+    private double gifToGameFPSRatio;
 
     public MenuState(Controller control) {
         super();
         options = new String[]{"Play","Look Cool","Exit"};
         currentOptionIndex = 0;
         this.control = control;
+        gameFps = GamePanel.fps;
+        gifToGameFPSRatio = 2; //TODO slow down the menu;
+        gifFps = 4;//(int) (gameFps * gifToGameFPSRatio); //TODO change this number
+        System.out.println(gifFps + "=" + gameFps + "*" + gifToGameFPSRatio);
         init();
     }
 
@@ -28,7 +36,12 @@ public class MenuState extends State {
     }
 
     public void update() {
-        background.nextFrame();
+        if(updateCounter == gifFps) {
+            background.nextFrame();
+            updateCounter = 0;
+        }
+        ++updateCounter;
+        System.out.println(updateCounter + "_" + gifFps + "_" + "uC_gF");
     }
 
     /*

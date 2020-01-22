@@ -12,7 +12,7 @@ public class Controller {
         states = new State[stateCount];
         states[0] = new WelcomeState(this);
         states[1] = new MenuState(this);
-        states[2] = new GameState(this);
+        //states[2] is initialized as needed
         states[3] = new GameOverState(this);
         states[4] = new ExitState(this);
         currentStateIndex = 0;
@@ -47,6 +47,7 @@ public class Controller {
     }
 
     public void menuRequestsGame() {
+        states[2] = new GameState(this);
         nextState();
     }
 

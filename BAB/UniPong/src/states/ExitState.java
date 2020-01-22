@@ -17,15 +17,21 @@ public class ExitState extends State{
     }
 
     public void init() {
-        text = "WoosalexGames Presents...";
+        text = "Have a good day! :)";
         msLifetime = 10000;
     }
 
     public void update() {
         // will this be needed?
+        try {
+            Thread.sleep(msLifetime);
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        control.exitRequestsExit();
     }
 
-    @Override
     public void paint(Graphics2D g) {
         //Bg
         g.setColor(Color.BLACK);
@@ -37,7 +43,7 @@ public class ExitState extends State{
         FontMetrics welcomeMetrics = g.getFontMetrics();
         Rectangle2D welcomeRect = welcomeMetrics.getStringBounds(text,g);
         int pointX = GamePanel.WIDTH / 2 - (int) welcomeRect.getWidth() / 2;
-        int pointY = GamePanel.HEIGHT / 2 - (int) welcomeRect.getHeight() / 2
+        int pointY = GamePanel.HEIGHT / 2 - (int) welcomeRect.getHeight() / 2;
         g.drawString(text, pointX,pointY);
     }
 

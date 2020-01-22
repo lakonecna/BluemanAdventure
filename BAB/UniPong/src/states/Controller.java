@@ -59,6 +59,19 @@ public class Controller {
     }
 
     public void menuRequestsExit() {
-        //TODO exiting game
+        currentStateIndex = 4;
+    }
+
+    public void welcomeRequestsMenu() {
+        nextState();
+    }
+
+    public void gameOverRequestsMenu() {
+        currentStateIndex = 1;
+    }
+
+    public void exitRequestsExit() {
+        playing = false;
+        //TODO exit game
     }
 }

@@ -10,7 +10,8 @@ import java.awt.image.BufferedImage;
 public class WelcomeState extends State {
     private Controller control;
     private String text;
-    private int msLifetime;
+    private int sleepTime;
+    private int currentTime;
 
     public WelcomeState(Controller control) {
         this.control = control;
@@ -19,21 +20,27 @@ public class WelcomeState extends State {
 
     public void init() {
         text = "WoosalexGames Presents...";
-        msLifetime = 10000;
+        sleepTime = 60;
+        currentTime = 0;
     }
 
     public void update() {
+        System.out.println("Here3");
         // will this be needed?
         try {
-            Thread.sleep(msLifetime);
+            Thread.sleep(1);
+            ++currentTime;
         }
         catch(Exception e) {
             e.printStackTrace();
         }
-        control.welcomeRequestsMenu();
+        if(currentTime == sleepTime) {
+            control.welcomeRequestsMenu();
+        }
     }
 
     public void paint(Graphics2D g) {
+        System.out.println("Here1");
         //Bg
         g.setColor(Color.BLACK);
         g.fillRect(0,0, GamePanel.WIDTH,GamePanel.HEIGHT);
@@ -46,6 +53,7 @@ public class WelcomeState extends State {
         int pointX = GamePanel.WIDTH / 2 - (int) welcomeRect.getWidth() / 2;
         int pointY = GamePanel.HEIGHT / 2 - (int) welcomeRect.getHeight() / 2;
         g.drawString(text, pointX,pointY);
+        System.out.println("Here2");
     }
 
     public void keyPressed(int keyCode) {

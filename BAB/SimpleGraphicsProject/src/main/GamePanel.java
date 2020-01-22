@@ -17,10 +17,13 @@ public class GamePanel extends JPanel {
         requestFocus();
     }
 
-    public void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.BLACK);
+        g.fillRect(0,0,GamePanel.WIDTH,GamePanel.HEIGHT);
+        g.setColor(Color.cyan);
         g.setColor(new Color(250,50,50));
         g.setFont(new Font(Font.SERIF, Font.BOLD + Font.ITALIC, 15));
-        super.paintComponent(g);
         String str = "Hello";
         int panelCenterX = WIDTH/2;
         int panelCenterY = HEIGHT/2;

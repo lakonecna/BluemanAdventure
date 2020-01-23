@@ -5,7 +5,7 @@ import java.awt.*;
 public class Controller {
     private State[] states;
     private int currentStateIndex;
-    private final static int stateCount = 5;
+    private final static int stateCount = 6;
     private boolean playing;
 
     public Controller() {
@@ -14,13 +14,14 @@ public class Controller {
         states[1] = new MenuState(this);
         //states[2] is initialized as needed
         states[3] = new GameOverState(this);
-        states[4] = new ExitState(this);
+        states[4] = new LookingCoolState(this);
+        states[5] = new ExitState(this);
         currentStateIndex = 0;
         playing = true;
     }
 
     public void init() {
-        //states[currentStateIndex].init(); //How often is this method called?
+        // will this be needed?
     }
 
     public void update() {
@@ -52,8 +53,10 @@ public class Controller {
     }
 
     public void menuRequestsExit() {
-        currentStateIndex = 4;
+        currentStateIndex = 5;
     }
+
+    public void menuRequestslcs() { currentStateIndex = 4; }
 
     public void welcomeRequestsMenu() {
         nextState();
@@ -70,6 +73,8 @@ public class Controller {
     public void gameRequestsGameOver() {
         nextState();
     }
+
+    public void lcsRequestsMenu() { currentStateIndex = 1; }
 
     public boolean isRunning() {
         return playing;

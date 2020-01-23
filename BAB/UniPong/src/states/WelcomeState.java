@@ -20,7 +20,7 @@ public class WelcomeState extends State {
 
     public void init() {
         text = "WoosalexGames Presents...";
-        sleepTime = 45;
+        sleepTime = 100;
         currentTime = 0;
     }
 

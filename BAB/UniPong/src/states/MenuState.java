@@ -26,7 +26,6 @@ public class MenuState extends State {
         gameFps = GamePanel.fps;
         gifToGameFPSRatio = 2; //TODO slow down the menu;
         gifFps = 4;//(int) (gameFps * gifToGameFPSRatio); //TODO change this number
-        System.out.println(gifFps + "=" + gameFps + "*" + gifToGameFPSRatio);
         init();
     }
 
@@ -41,7 +40,6 @@ public class MenuState extends State {
             updateCounter = 0;
         }
         ++updateCounter;
-        System.out.println(updateCounter + "_" + gifFps + "_" + "uC_gF");
     }
 
     /*
@@ -93,7 +91,7 @@ public class MenuState extends State {
                 control.menuRequestsGame();
             }
             else if(currentOptionIndex == 1) {
-                // nothing here
+                control.menuRequestslcs();
             }
             else if(currentOptionIndex == 2) {
                 control.menuRequestsExit();

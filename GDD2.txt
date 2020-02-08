@@ -98,12 +98,27 @@ Game Design Document
 			8 Environments:
 				- Elemental cortex
 					- underwater
+						*you can swim by pressing space and holding it, pressing left or right will
+						cause movement in that direction.
+						*plants exist
+						*everything moves a bit
+						*currency: pearls, clams and pebbles
+						*moving l shape for waves
+						*currents can move character
+						*black pits you can fall into, you need to swim over these
+						*antagonists: underwater beast like(
+														footranah - foot shaped pirranah
+														shellstick - shelled creature with a stick,
+														manclam - covers its feet, walks on its arms, can swim, 
 					- jungle
+						*antagonists like:
+							3bspider - spider looks like its made up of 3 bees, 
+							
 					- road
 					- city
 					- rock
 				- Metallic Forest
-				- Shivering sea
+				- Shivering seas
 				- Mineral Mines
 				- Freeze city
 				- The fall
